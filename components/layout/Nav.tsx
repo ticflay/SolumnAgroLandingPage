@@ -29,10 +29,10 @@ export default function Nav() {
               isScrolled ? 'text-green-900' : 'text-white'
             }`}
           >
-            Solum
+            Solumn
           </span>
           <span className="text-[1.75rem] font-light text-teal-600 tracking-[-0.03em] font-serif">
-            Agro
+            Consultoria
           </span>
         </a>
 

@@ -112,7 +112,7 @@ export const PROCESS_DELIVERABLES = [
 
 export const TESTIMONIALS = [
   {
-    text: 'A Solum Agro entregou o PRAD no prazo e com uma qualidade técnica que nos surpreendeu. O órgão ambiental aprovou sem ressalvas.',
+    text: 'A Solumn Consultoria entregou o PRAD no prazo e com uma qualidade técnica que nos surpreendeu. O órgão ambiental aprovou sem ressalvas.',
     author: 'Ricardo Mendes',
     role: 'Diretor de operações',
     company: 'Construtora Atlântica',
@@ -130,7 +130,7 @@ export const TESTIMONIALS = [
     company: 'CE Empreendimentos',
   },
   {
-    text: 'Contratamos a Solum Agro para o CAR de uma área extensa e o processo foi conduzido com total segurança jurídica. Aprovação sem nenhuma pendência.',
+    text: 'Contratamos a Solumn Consultoria para o CAR de uma área extensa e o processo foi conduzido com total segurança jurídica. Aprovação sem nenhuma pendência.',
     author: 'Marcelo Teixeira',
     role: 'Diretor financeiro',
     company: 'Agropecuária Teixeira',
@@ -144,7 +144,7 @@ interface ContactItem {
 
 export const CONTACT_INFO: ContactItem[] = [
   { icon: Phone, text: '(81) 9xxxx-xxxx' },
-  { icon: Mail, text: 'contato@solumagro.com.br' },
+  { icon: Mail, text: 'contato@solumnconsultoria.com.br' },
   { icon: MapPin, text: 'Atendimento em todo o Brasil' },
 ]
 
