@@ -39,12 +39,21 @@ export default function Contact() {
             <div className="flex flex-col gap-6">
               {CONTACT_INFO.map((item) => {
                 const Icon = item.icon
-                return (
-                  <div key={item.text} className="flex items-center gap-3.5 text-white/65 text-base">
+                const content = (
+                  <>
                     <div className="w-[42px] h-[42px] rounded-[10px] bg-white/[7%] flex items-center justify-center shrink-0 text-white/50">
                       <Icon size={18} />
                     </div>
                     {item.text}
+                  </>
+                )
+                return item.href ? (
+                  <a key={item.text} href={item.href} className="flex items-center gap-3.5 text-white/65 text-base no-underline hover:text-white/90 transition-colors duration-200">
+                    {content}
+                  </a>
+                ) : (
+                  <div key={item.text} className="flex items-center gap-3.5 text-white/65 text-base">
+                    {content}
                   </div>
                 )
               })}

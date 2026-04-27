@@ -140,11 +140,12 @@ export const TESTIMONIALS = [
 interface ContactItem {
   icon: LucideIcon
   text: string
+  href?: string
 }
 
 export const CONTACT_INFO: ContactItem[] = [
   { icon: Phone, text: '(81) 9xxxx-xxxx' },
-  { icon: Mail, text: 'contato@solumnconsultoria.com.br' },
+  { icon: Mail, text: 'consultoriasolum@gmail.com', href: 'mailto:consultoriasolum@gmail.com' },
   { icon: MapPin, text: 'Atendimento em todo o Brasil' },
 ]
 

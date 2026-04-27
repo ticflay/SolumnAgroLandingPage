@@ -25,13 +25,13 @@ export default function Nav() {
       <div className="max-w-[1120px] mx-auto px-6 h-16 flex items-center justify-between">
         <a href="/" className="no-underline flex items-baseline gap-0.5">
           <span
-            className={`text-[1.75rem] font-bold tracking-[-0.03em] font-serif transition-colors duration-300 ${
+            className={`text-[1.375rem] font-bold tracking-[-0.03em] font-serif transition-colors duration-300 ${
               isScrolled ? 'text-green-900' : 'text-white'
             }`}
           >
             Solumn
           </span>
-          <span className="text-[1.75rem] font-light text-teal-600 tracking-[-0.03em] font-serif">
+          <span className="text-[1.375rem] font-light text-teal-600 tracking-[-0.03em] font-serif">
             Consultoria
           </span>
         </a>
