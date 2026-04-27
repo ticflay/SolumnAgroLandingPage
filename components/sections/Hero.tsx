@@ -5,7 +5,7 @@ import { WHATSAPP_NUMBER } from '@/lib/constants'
 const TRUST_SIGNALS = [
   'ART em todos os projetos',
   'Atendimento em todo o Brasil',
-  'Retorno em até 24h',
+  'Retorno em até 24h.',
 ]
 
 export default function Hero() {
