@@ -11,7 +11,7 @@ export default function Footer() {
               <span className="text-2xl font-light text-teal-500 font-serif">Agro</span>
             </div>
             <p className="text-sm text-white/35 max-w-[260px] leading-relaxed">
-              Consultoria agronômica e ambiental com excelência técnica para todo o Brasil.
+              Consultoria ambiental com excelência técnica para todo o Brasil.
             </p>
           </div>
 

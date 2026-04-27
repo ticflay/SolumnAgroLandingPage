@@ -17,7 +17,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contato" className="min-h-screen flex flex-col justify-center py-20 bg-green-950 relative overflow-hidden">
+    <section id="contato" className="min-h-screen flex flex-col justify-center py-12 md:py-20 bg-green-950 relative overflow-hidden">
       <div
         className="absolute -top-[40%] -right-[15%] w-[700px] h-[700px] rounded-full pointer-events-none"
         style={{
@@ -25,13 +25,13 @@ export default function Contact() {
         }}
       />
 
-      <div className="relative z-[1] max-w-[1120px] mx-auto px-6 grid grid-cols-1 md:grid-cols-[1fr_460px] gap-[60px] items-start">
+      <div className="relative z-[1] max-w-[1120px] mx-auto px-6 grid grid-cols-1 md:grid-cols-[1fr_460px] gap-8 md:gap-[60px] items-start">
         <FadeIn>
           <div>
             <h2 className="font-serif font-normal text-white tracking-[-0.02em] mb-4 leading-[1.2] text-[clamp(1.75rem,4vw,2.375rem)]">
               Pronto para iniciar<br />seu projeto?
             </h2>
-            <p className="text-base text-white/50 leading-[1.7] mb-12 max-w-[400px]">
+            <p className="text-base text-white/50 leading-[1.7] mb-8 md:mb-12 max-w-[400px]">
               Solicite um orçamento sem compromisso. Nossa equipe retorna em até 24 horas com
               uma proposta personalizada.
             </p>
@@ -62,7 +62,7 @@ export default function Contact() {
         </FadeIn>
 
         <FadeIn delay={0.15}>
-          <div className="bg-white rounded-[18px] p-9">
+          <div className="bg-white rounded-[18px] p-6 md:p-9">
             <h3 className="font-serif text-[1.375rem] font-normal text-green-950 mb-7">
               Solicitar orçamento
             </h3>

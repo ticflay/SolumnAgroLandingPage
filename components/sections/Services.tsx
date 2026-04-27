@@ -17,7 +17,7 @@ const serviceStyles = [
 
 export default function Services() {
   return (
-    <section id="servicos" className="min-h-screen flex flex-col justify-center py-20 bg-white">
+    <section id="servicos" className="min-h-screen flex flex-col justify-center py-12 md:py-20 bg-white">
       <div className="max-w-[1120px] mx-auto px-6 w-full">
         <FadeIn>
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-teal-600 mb-3">
@@ -30,7 +30,7 @@ export default function Services() {
           </h2>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <p className="text-base text-sand-500 max-w-[560px] mb-16 leading-[1.7]">
+          <p className="text-base text-sand-500 max-w-[560px] mb-8 md:mb-16 leading-[1.7]">
             Atendemos diversas demandas agronômicas e ambientais. Conheça nossas principais
             frentes — e se o que você precisa não está aqui, entre em contato que encontramos
             a solução.
@@ -45,7 +45,7 @@ export default function Services() {
             return (
               <FadeIn key={service.id} delay={0.15 + i * 0.1}>
                 <a href="#contato" className="no-underline text-inherit block h-full">
-                  <div className="relative overflow-hidden rounded-2xl p-10 h-full flex flex-col bg-sand-50 border border-transparent cursor-pointer transition-all duration-300 hover:bg-white hover:border-sand-200 hover:-translate-y-[3px] hover:shadow-[0_12px_48px_rgba(0,0,0,0.05)]">
+                  <div className="relative overflow-hidden rounded-2xl p-6 md:p-10 h-full flex flex-col bg-sand-50 border border-transparent cursor-pointer transition-all duration-300 hover:bg-white hover:border-sand-200 hover:-translate-y-[3px] hover:shadow-[0_12px_48px_rgba(0,0,0,0.05)]">
                     <div className={`absolute -top-[60px] -right-[60px] w-40 h-40 rounded-full pointer-events-none ${style.bgClass}`} />
 
                     <div className={`relative w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${style.bgClass} ${style.colorClass}`}>
@@ -82,7 +82,7 @@ export default function Services() {
 
           <FadeIn delay={0.35}>
             <a href="#contato" className="no-underline text-inherit block h-full">
-              <div className="rounded-2xl p-10 h-full min-h-[280px] bg-sand-50 border border-dashed border-sand-300 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 hover:bg-white hover:border-teal-500 hover:-translate-y-[3px] hover:shadow-[0_12px_48px_rgba(0,0,0,0.05)]">
+              <div className="rounded-2xl p-6 md:p-10 h-full min-h-[280px] bg-sand-50 border border-dashed border-sand-300 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 hover:bg-white hover:border-teal-500 hover:-translate-y-[3px] hover:shadow-[0_12px_48px_rgba(0,0,0,0.05)]">
                 <div className="w-12 h-12 rounded-xl bg-teal-600/[6%] flex items-center justify-center text-teal-600 mb-5">
                   <MessageCircle size={24} />
                 </div>

@@ -6,7 +6,7 @@ const STAR_KEYS = ['star-1', 'star-2', 'star-3', 'star-4', 'star-5']
 
 export default function Testimonials() {
   return (
-    <section id="depoimentos" className="min-h-screen flex flex-col justify-center py-20 bg-white">
+    <section id="depoimentos" className="min-h-screen flex flex-col justify-center py-12 md:py-20 bg-white">
       <div className="max-w-[1120px] mx-auto px-6 w-full">
         <FadeIn>
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-teal-600 mb-3">
@@ -21,7 +21,7 @@ export default function Testimonials() {
 
         {/* Avaliação agregada */}
         <FadeIn delay={0.1}>
-          <div className="flex items-center gap-3 mb-14">
+          <div className="flex items-center gap-3 mb-8 md:mb-14">
             <div className="flex gap-1">
               {STAR_KEYS.map((key) => (
                 <Star key={key} size={18} fill="#1D9E75" color="#1D9E75" />
@@ -35,7 +35,7 @@ export default function Testimonials() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {TESTIMONIALS.map((t, i) => (
             <FadeIn key={t.author} delay={0.15 + i * 0.1}>
-              <div className="bg-sand-50 rounded-2xl p-8 h-full flex flex-col border border-transparent transition-all duration-300 hover:border-sand-200 hover:bg-white">
+              <div className="bg-sand-50 rounded-2xl p-5 md:p-8 h-full flex flex-col border border-transparent transition-all duration-300 hover:border-sand-200 hover:bg-white">
                 <div className="flex gap-[3px] mb-5">
                   {STAR_KEYS.map((key) => (
                     <Star key={key} size={14} fill="#1D9E75" color="#1D9E75" />
@@ -57,7 +57,7 @@ export default function Testimonials() {
 
         {/* CTA contextual */}
         <FadeIn delay={0.55}>
-          <div className="mt-12 rounded-2xl bg-sand-50 border border-sand-200 p-8 flex flex-col md:flex-row items-center justify-between gap-5">
+          <div className="mt-8 md:mt-12 rounded-2xl bg-sand-50 border border-sand-200 p-5 md:p-8 flex flex-col md:flex-row items-center justify-between gap-5">
             <div>
               <p className="text-[1.0625rem] font-semibold text-green-950 mb-1">
                 Quer resultados como esses?

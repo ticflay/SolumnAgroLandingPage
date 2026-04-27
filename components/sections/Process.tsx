@@ -4,7 +4,7 @@ import { PROCESS_STEPS, PROCESS_DELIVERABLES } from '@/lib/constants'
 
 export default function Process() {
   return (
-    <section id="processo" className="min-h-screen flex flex-col justify-center py-20 bg-sand-50">
+    <section id="processo" className="min-h-screen flex flex-col justify-center py-12 md:py-20 bg-sand-50">
       <div className="max-w-[1120px] mx-auto px-6 w-full">
         <FadeIn>
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-teal-600 mb-3">
@@ -12,7 +12,7 @@ export default function Process() {
           </p>
         </FadeIn>
         <FadeIn delay={0.05}>
-          <h2 className="font-serif font-normal tracking-[-0.02em] text-green-950 mb-16 leading-[1.2] text-[clamp(1.75rem,4vw,2.375rem)]">
+          <h2 className="font-serif font-normal tracking-[-0.02em] text-green-950 mb-8 md:mb-16 leading-[1.2] text-[clamp(1.75rem,4vw,2.375rem)]">
             Do primeiro contato à<br />entrega do projeto
           </h2>
         </FadeIn>
@@ -56,7 +56,7 @@ export default function Process() {
 
         {/* Bloco de entregáveis */}
         <FadeIn delay={0.5}>
-          <div className="mt-16 bg-white rounded-2xl p-8 border border-sand-200">
+          <div className="mt-10 md:mt-16 bg-white rounded-2xl p-5 md:p-8 border border-sand-200">
             <p className="text-xs font-semibold uppercase tracking-[0.08em] text-sand-500 mb-6">
               O que você recebe
             </p>

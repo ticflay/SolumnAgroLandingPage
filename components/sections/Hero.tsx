@@ -52,7 +52,7 @@ export default function Hero() {
         <path d="M0 460 Q80 440 180 450 Q320 465 480 400 Q620 340 700 355" fill="none" stroke="#1D9E75" strokeWidth="2" />
       </svg>
 
-      <div className="max-w-[1120px] mx-auto px-6 py-32 relative z-[1] w-full">
+      <div className="max-w-[1120px] mx-auto px-6 py-16 md:py-32 relative z-[1] w-full">
         <FadeIn>
           <div className="inline-flex items-center gap-2 bg-teal-500/[0.12] border border-teal-500/20 rounded-full py-1.5 px-[18px] pl-3 text-sm font-medium text-teal-400 mb-7">
             <span className="w-[7px] h-[7px] rounded-full bg-teal-400 animate-pulse-dot" />
@@ -62,7 +62,7 @@ export default function Hero() {
 
         <FadeIn delay={0.1}>
           <h1 className="font-serif font-normal leading-[1.1] tracking-[-0.03em] text-white mb-[22px] max-w-[600px] text-[clamp(2.25rem,5vw,3.5rem)]">
-            Consultoria agronômica<br />
+            Consultoria ambiental<br />
             com <em className="text-teal-400 not-italic">excelência técnica</em>
           </h1>
         </FadeIn>
@@ -75,7 +75,7 @@ export default function Hero() {
         </FadeIn>
 
         <FadeIn delay={0.3}>
-          <div className="flex gap-3 flex-wrap items-center">
+          <div className="flex gap-3 flex-col sm:flex-row flex-wrap items-stretch sm:items-center">
             <a
               href="#contato"
               className="inline-flex items-center gap-2 bg-teal-500 text-white px-[30px] py-[15px] rounded-lg text-base font-medium no-underline transition-all duration-200 hover:-translate-y-0.5"
@@ -100,7 +100,7 @@ export default function Hero() {
         </FadeIn>
 
         <FadeIn delay={0.45}>
-          <div className="mt-12 pt-10 border-t border-white/[0.08] flex flex-wrap gap-x-8 gap-y-3">
+          <div className="mt-8 md:mt-12 pt-8 md:pt-10 border-t border-white/[0.08] flex flex-wrap gap-x-8 gap-y-3">
             {TRUST_SIGNALS.map((item) => (
               <div key={item} className="flex items-center gap-2 text-sm text-white/45">
                 <CheckCircle2 size={14} className="text-teal-400 shrink-0" />
