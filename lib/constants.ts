@@ -143,7 +143,7 @@ interface ContactItem {
 }
 
 export const CONTACT_INFO: ContactItem[] = [
-  { icon: Phone, text: '(81) 98591-6391', href: 'tel:+5581985916391' },
+  { icon: Phone, text: '(81) 98417-2325', href: 'tel:+5581984172325' },
   { icon: Mail, text: 'consultoriasolum@gmail.com', href: 'mailto:consultoriasolum@gmail.com' },
   { icon: MapPin, text: 'Atendimento em todo o Brasil' },
 ]
@@ -161,4 +161,4 @@ export const FOOTER_COMPANY = [
   { label: 'Contato', href: '#contato' },
 ]
 
-export const WHATSAPP_NUMBER = '5581985916391'
+export const WHATSAPP_NUMBER = '5581984172325'
