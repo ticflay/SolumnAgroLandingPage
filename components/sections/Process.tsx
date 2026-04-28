@@ -17,7 +17,36 @@ export default function Process() {
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6">
+        {/* Mobile: timeline vertical */}
+        <div className="sm:hidden relative space-y-5">
+          <div className="absolute left-[25px] top-0 bottom-0 w-px bg-teal-200" />
+          {PROCESS_STEPS.map((step, i) => {
+            const Icon = step.icon
+            return (
+              <FadeIn key={step.num} delay={0.1 + i * 0.1}>
+                <div className="relative flex gap-5">
+                  <div className="relative z-[1] w-[52px] h-[52px] rounded-full bg-green-900 text-white flex items-center justify-center font-serif text-base font-normal shrink-0">
+                    {step.num}
+                  </div>
+                  <div className="flex-1 pt-1">
+                    <div className="w-9 h-9 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-600 mb-3">
+                      <Icon size={18} />
+                    </div>
+                    <h3 className="text-[1.0625rem] font-semibold text-green-950 mb-2">{step.title}</h3>
+                    <p className="text-sm text-sand-500 leading-[1.6] mb-3">{step.desc}</p>
+                    <div className="flex items-center gap-2 text-sm text-teal-600 font-medium">
+                      <CheckCircle2 size={13} className="shrink-0" />
+                      <span>{step.bullet}</span>
+                    </div>
+                  </div>
+                </div>
+              </FadeIn>
+            )
+          })}
+        </div>
+
+        {/* Tablet / Desktop: grid */}
+        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6">
           {PROCESS_STEPS.map((step, i) => {
             const Icon = step.icon
             return (
@@ -26,24 +55,17 @@ export default function Process() {
                   {i < 3 && (
                     <div className="hidden lg:block absolute top-[26px] left-[calc(100%-8px)] w-[calc(100%-44px)] h-px bg-sand-300 z-0" />
                   )}
-
-                  {/* Number + dash */}
                   <div className="flex items-center gap-3.5 mb-5">
                     <div className="relative z-[1] w-[52px] h-[52px] rounded-full bg-green-900 text-white flex items-center justify-center font-serif text-base font-normal shrink-0">
                       {step.num}
                     </div>
                     <div className="h-0.5 w-8 rounded-sm bg-teal-500" />
                   </div>
-
-                  {/* Icon */}
                   <div className="w-10 h-10 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-600 mb-4">
                     <Icon size={20} />
                   </div>
-
                   <h3 className="text-[1.0625rem] font-semibold text-green-950 mb-2">{step.title}</h3>
                   <p className="text-sm text-sand-500 leading-[1.6] mb-3">{step.desc}</p>
-
-                  {/* Bullet */}
                   <div className="flex items-center gap-2 text-sm text-teal-600 font-medium">
                     <CheckCircle2 size={13} className="shrink-0" />
                     <span>{step.bullet}</span>
