@@ -30,6 +30,7 @@ export default function Nav() {
             alt="Solum Consultoria"
             width={48}
             height={48}
+            priority
             className="rounded-full object-cover"
           />
           <span className="flex items-baseline gap-0.5">

@@ -10,14 +10,14 @@ export default function Footer() {
               <span className="text-2xl font-bold text-white font-serif">Solum</span>
               <span className="text-2xl font-light text-teal-500 font-serif"> Consultoria</span>
             </div>
-            <p className="text-sm text-white/35 max-w-[260px] leading-relaxed">
+            <p className="text-sm text-white/60 max-w-[260px] leading-relaxed">
               Consultoria ambiental com excelência técnica para todo o Brasil.
             </p>
           </div>
 
           <div className="flex gap-14">
             <div>
-              <h4 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/30 mb-4">
+              <h4 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/55 mb-4">
                 Serviços
               </h4>
               {FOOTER_SERVICES.map((item) => (
@@ -31,7 +31,7 @@ export default function Footer() {
               ))}
             </div>
             <div>
-              <h4 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/30 mb-4">
+              <h4 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/55 mb-4">
                 Empresa
               </h4>
               {FOOTER_COMPANY.map((item) => (
@@ -47,7 +47,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/[0.06] pt-6 flex flex-col md:flex-row justify-between text-sm text-white/25 gap-2 md:gap-0">
+        <div className="border-t border-white/[0.06] pt-6 flex flex-col md:flex-row justify-between text-sm text-white/50 gap-2 md:gap-0">
           <span>&copy; 2026 Solum Consultoria. Todos os direitos reservados.</span>
           <span>CREA — Responsabilidade técnica</span>
         </div>
