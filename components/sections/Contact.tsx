@@ -52,13 +52,13 @@ export default function Contact() {
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
-    const { id, value } = e.target
-    setFields((prev) => ({ ...prev, [id]: value }))
+    const { name, value } = e.target
+    setFields((prev) => ({ ...prev, [name]: value }))
     setErrors((prev) => {
       const next = { ...prev }
-      if (id === 'nome') delete next.nome
-      if (id === 'servico') delete next.servico
-      if (id === 'contato') delete next.contato
+      if (name === 'nome') delete next.nome
+      if (name === 'servico') delete next.servico
+      if (name === 'contato') delete next.contato
       return next
     })
   }
@@ -135,9 +135,9 @@ export default function Contact() {
               href={buildWhatsAppUrl(fields)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-[#25D366] text-white px-6 py-3.5 rounded-lg text-sm font-medium no-underline transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(37,211,102,0.3)] w-full justify-center"
+              className="inline-flex items-center gap-2.5 bg-[#25D366] text-green-950 px-6 py-3.5 rounded-lg text-sm font-medium no-underline transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(37,211,102,0.3)] w-full justify-center"
             >
-              <MessageCircle size={18} fill="#fff" /> Continuar pelo WhatsApp
+              <MessageCircle size={18} fill="currentColor" /> Continuar pelo WhatsApp
             </a>
 
             <button
@@ -196,9 +196,9 @@ export default function Contact() {
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá, vim do site e gostaria de saber mais informações')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 bg-[#25D366] text-white px-8 py-4 rounded-[10px] text-base font-medium no-underline transition-all duration-200 mt-9 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(37,211,102,0.3)]"
+                className="inline-flex items-center gap-2.5 bg-[#25D366] text-green-950 px-8 py-4 rounded-[10px] text-base font-medium no-underline transition-all duration-200 mt-9 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(37,211,102,0.3)]"
               >
-                <MessageCircle size={20} fill="#fff" /> Fale pelo WhatsApp
+                <MessageCircle size={20} fill="currentColor" /> Fale pelo WhatsApp
               </a>
             </div>
           </FadeIn>
@@ -216,6 +216,7 @@ export default function Contact() {
                   </label>
                   <input
                     id="nome"
+                    name="nome"
                     className={errors.nome ? inputErrorClass : inputClass}
                     placeholder="Seu nome"
                     value={fields.nome}
@@ -225,11 +226,12 @@ export default function Contact() {
                 </div>
 
                 <div className="mb-3.5">
-                  <label htmlFor="contato" className="block text-sm font-medium text-sand-700 mb-1.5">
+                  <label htmlFor="contato-input" className="block text-sm font-medium text-sand-700 mb-1.5">
                     E-mail ou Telefone <span className="text-red-500">*</span>
                   </label>
                   <input
-                    id="contato"
+                    id="contato-input"
+                    name="contato"
                     className={errors.contato ? inputErrorClass : inputClass}
                     placeholder="seu@email.com ou (81) 9xxxx-xxxx"
                     value={fields.contato}
@@ -244,6 +246,7 @@ export default function Contact() {
                   </label>
                   <select
                     id="servico"
+                    name="servico"
                     className={errors.servico ? inputErrorClass : inputClass}
                     value={fields.servico}
                     onChange={handleChange}
@@ -265,6 +268,7 @@ export default function Contact() {
                   </label>
                   <textarea
                     id="detalhes"
+                    name="detalhes"
                     className={`${inputClass} min-h-[90px] resize-y`}
                     placeholder="Descreva brevemente sua necessidade..."
                     value={fields.detalhes}

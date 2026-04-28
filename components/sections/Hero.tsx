@@ -11,6 +11,12 @@ const TRUST_SIGNALS = [
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-green-950 min-h-screen flex flex-col justify-center">
+      <link
+        rel="preload"
+        as="image"
+        href="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1920&q=85"
+        fetchPriority="high"
+      />
       {/* Background image */}
       <div
         className="absolute top-0 right-0 w-full md:w-[55%] h-full bg-cover bg-center pointer-events-none opacity-25 md:opacity-100"
@@ -77,7 +83,7 @@ export default function Hero() {
           <div className="flex gap-3 flex-col sm:flex-row flex-wrap items-stretch sm:items-center">
             <a
               href="#contato"
-              className="inline-flex items-center gap-2 bg-teal-500 text-white px-[30px] py-[15px] rounded-lg text-base font-medium no-underline transition-all duration-200 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 bg-teal-600 text-white px-[30px] py-[15px] rounded-lg text-base font-medium no-underline transition-all duration-200 hover:-translate-y-0.5"
             >
               Solicitar orçamento <ArrowRight size={16} />
             </a>
@@ -85,9 +91,9 @@ export default function Hero() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#25D366] text-white px-[30px] py-[15px] rounded-lg text-base font-medium no-underline transition-all duration-200 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 bg-[#25D366] text-green-950 px-[30px] py-[15px] rounded-lg text-base font-medium no-underline transition-all duration-200 hover:-translate-y-0.5"
             >
-              <MessageCircle size={18} fill="#fff" /> WhatsApp
+              <MessageCircle size={18} fill="currentColor" /> WhatsApp
             </a>
             <a
               href="#servicos"
