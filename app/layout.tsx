@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Solum Consultoria — Consultoria Ambiental',
   description:
     'Laudos agronômicos e projetos ambientais para empresas que precisam de agilidade, conformidade e segurança técnica.',
+  icons: {
+    icon: '/logo.png',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

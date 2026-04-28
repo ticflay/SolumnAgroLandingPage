@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 import { NAV_LINKS } from '@/lib/constants'
 
 export default function Nav() {
@@ -23,16 +24,25 @@ export default function Nav() {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="/" className="no-underline flex items-baseline gap-0.5">
-          <span
-            className={`text-[1.375rem] font-bold tracking-[-0.03em] font-serif transition-colors duration-300 ${
-              isScrolled ? 'text-green-900' : 'text-white'
-            }`}
-          >
-            Solum
-          </span>
-          <span className="text-[1.375rem] font-light text-teal-600 tracking-[-0.03em] font-serif">
-            Consultoria
+        <a href="/" className="no-underline flex items-center gap-2.5">
+          <Image
+            src="/logo.png"
+            alt="Solum Consultoria"
+            width={48}
+            height={48}
+            className="rounded-full object-cover"
+          />
+          <span className="flex items-baseline gap-0.5">
+            <span
+              className={`text-[1.375rem] font-bold tracking-[-0.03em] font-serif transition-colors duration-300 ${
+                isScrolled ? 'text-green-900' : 'text-white'
+              }`}
+            >
+              Solum
+            </span>
+            <span className="text-[1.375rem] font-light text-teal-600 tracking-[-0.03em] font-serif">
+              Consultoria
+            </span>
           </span>
         </a>
 
