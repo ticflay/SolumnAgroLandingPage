@@ -69,7 +69,7 @@ export default function Hero() {
 
         <FadeIn delay={0.2}>
           <p className="text-lg text-white/50 max-w-[480px] leading-[1.7] mb-10">
-            Laudos agronômicos e projetos ambientais para empresas que precisam de agilidade, conformidade e segurança técnica..
+            Laudos agronômicos e projetos ambientais para empresas que precisam de agilidade, conformidade e segurança técnica.
           </p>
         </FadeIn>
 
