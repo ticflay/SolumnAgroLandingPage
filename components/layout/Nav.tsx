@@ -29,7 +29,7 @@ export default function Nav() {
               isScrolled ? 'text-green-900' : 'text-white'
             }`}
           >
-            Solumn
+            Solum
           </span>
           <span className="text-[1.375rem] font-light text-teal-600 tracking-[-0.03em] font-serif">
             Consultoria

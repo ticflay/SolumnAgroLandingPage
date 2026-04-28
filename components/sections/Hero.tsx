@@ -1,6 +1,6 @@
 import { ArrowRight, MessageCircle, CheckCircle2, ChevronDown } from 'lucide-react'
 import FadeIn from '@/components/ui/FadeIn'
-import { WHATSAPP_NUMBER } from '@/lib/constants'
+import { WHATSAPP_URL } from '@/lib/constants'
 
 const TRUST_SIGNALS = [
   'ART em todos os projetos',
@@ -82,7 +82,7 @@ export default function Hero() {
               Solicitar orçamento <ArrowRight size={16} />
             </a>
             <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#25D366] text-white px-[30px] py-[15px] rounded-lg text-base font-medium no-underline transition-all duration-200 hover:-translate-y-0.5"

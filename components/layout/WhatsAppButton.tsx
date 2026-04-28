@@ -2,14 +2,14 @@
 
 import { useState } from 'react'
 import { MessageCircle } from 'lucide-react'
-import { WHATSAPP_NUMBER } from '@/lib/constants'
+import { WHATSAPP_URL } from '@/lib/constants'
 
 export default function WhatsAppButton() {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
     <a
-      href={`https://wa.me/${WHATSAPP_NUMBER}`}
+      href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
       onMouseEnter={() => setIsHovered(true)}

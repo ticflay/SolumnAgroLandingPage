@@ -111,7 +111,7 @@ export const PROCESS_DELIVERABLES = [
 
 export const TESTIMONIALS = [
   {
-    text: 'A Solumn Consultoria entregou o PRAD no prazo e com uma qualidade técnica que nos surpreendeu. O órgão ambiental aprovou sem ressalvas.',
+    text: 'A Solum Consultoria entregou o PRAD no prazo e com uma qualidade técnica que nos surpreendeu. O órgão ambiental aprovou sem ressalvas.',
     author: 'Ricardo Mendes',
     role: 'Diretor de operações',
     company: 'Construtora Atlântica',
@@ -129,7 +129,7 @@ export const TESTIMONIALS = [
     company: 'CE Empreendimentos',
   },
   {
-    text: 'Contratamos a Solumn Consultoria para o CAR de uma área extensa e o processo foi conduzido com total segurança jurídica. Aprovação sem nenhuma pendência.',
+    text: 'Contratamos a Solum Consultoria para o CAR de uma área extensa e o processo foi conduzido com total segurança jurídica. Aprovação sem nenhuma pendência.',
     author: 'Marcelo Teixeira',
     role: 'Diretor financeiro',
     company: 'Agropecuária Teixeira',
@@ -162,3 +162,4 @@ export const FOOTER_COMPANY = [
 ]
 
 export const WHATSAPP_NUMBER = '5581984172325'
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá, vim do site e gostaria de saber mais informações')}`

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Solumn Consultoria — Consultoria Ambiental',
+  title: 'Solum Consultoria — Consultoria Ambiental',
   description:
     'Laudos agronômicos e projetos ambientais para empresas que precisam de agilidade, conformidade e segurança técnica.',
 }
