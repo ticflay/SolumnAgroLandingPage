@@ -3,7 +3,7 @@ import { FOOTER_SERVICES, FOOTER_COMPANY } from '@/lib/constants'
 export default function Footer() {
   return (
     <footer className="bg-green-950 border-t border-white/[0.06] pt-12 pb-8">
-      <div className="max-w-[1120px] mx-auto px-6">
+      <div className="max-w-[1400px] mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-0 mb-10">
           <div>
             <div className="mb-2.5">

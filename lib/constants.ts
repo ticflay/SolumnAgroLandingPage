@@ -15,7 +15,6 @@ import {
 export const NAV_LINKS = [
   { label: 'Serviços', href: '#servicos' },
   { label: 'Como funciona', href: '#processo' },
-  { label: 'Depoimentos', href: '#depoimentos' },
 ]
 
 interface Service {

@@ -4,7 +4,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Solumn Consultoria — Consultoria Ambiental',
   description:
-    'Laudos agronômicos e projetos ambientais para empresas e construtoras que exigem qualidade, conformidade e agilidade.',
+    'Laudos agronômicos e projetos ambientais para empresas que precisam de agilidade, conformidade e segurança técnica.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -25,7 +25,7 @@ export default function Contact() {
         }}
       />
 
-      <div className="relative z-[1] max-w-[1120px] mx-auto px-6 grid grid-cols-1 md:grid-cols-[1fr_460px] gap-8 md:gap-[60px] items-start">
+      <div className="relative z-[1] max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-[1fr_460px] xl:grid-cols-[1fr_520px] gap-8 md:gap-[60px] items-start">
         <FadeIn>
           <div>
             <h2 className="font-serif font-normal text-white tracking-[-0.02em] mb-4 leading-[1.2] text-[clamp(1.75rem,4vw,2.375rem)]">

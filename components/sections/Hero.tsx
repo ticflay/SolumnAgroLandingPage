@@ -16,7 +16,7 @@ export default function Hero() {
         className="absolute top-0 right-0 w-full md:w-[55%] h-full bg-cover bg-center pointer-events-none opacity-25 md:opacity-100"
         style={{
           backgroundImage:
-            'url(https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1200&q=80)',
+            'url(https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1920&q=85)',
         }}
       />
 
@@ -52,7 +52,7 @@ export default function Hero() {
         <path d="M0 460 Q80 440 180 450 Q320 465 480 400 Q620 340 700 355" fill="none" stroke="#1D9E75" strokeWidth="2" />
       </svg>
 
-      <div className="max-w-[1120px] mx-auto px-6 py-16 md:py-32 relative z-[1] w-full">
+      <div className="max-w-[1400px] mx-auto px-6 pt-28 pb-16 md:py-32 relative z-[1] w-full">
         <FadeIn>
           <div className="inline-flex items-center gap-2 bg-teal-500/[0.12] border border-teal-500/20 rounded-full py-1.5 px-[18px] pl-3 text-sm font-medium text-teal-400 mb-7">
             <span className="w-[7px] h-[7px] rounded-full bg-teal-400 animate-pulse-dot" />
@@ -69,8 +69,7 @@ export default function Hero() {
 
         <FadeIn delay={0.2}>
           <p className="text-lg text-white/50 max-w-[480px] leading-[1.7] mb-10">
-            Laudos agronômicos e projetos ambientais para empresas e construtoras que
-            exigem qualidade, conformidade e agilidade.
+            Laudos agronômicos e projetos ambientais para empresas que precisam de agilidade, conformidade e segurança técnica..
           </p>
         </FadeIn>
 

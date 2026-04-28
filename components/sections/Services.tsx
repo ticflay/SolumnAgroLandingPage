@@ -18,7 +18,7 @@ const serviceStyles = [
 export default function Services() {
   return (
     <section id="servicos" className="min-h-screen flex flex-col justify-center py-12 md:py-20 bg-white">
-      <div className="max-w-[1120px] mx-auto px-6 w-full">
+      <div className="max-w-[1400px] mx-auto px-6 w-full">
         <FadeIn>
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-teal-600 mb-3">
             Serviços

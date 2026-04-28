@@ -5,7 +5,7 @@ import { PROCESS_STEPS, PROCESS_DELIVERABLES } from '@/lib/constants'
 export default function Process() {
   return (
     <section id="processo" className="min-h-screen flex flex-col justify-center py-12 md:py-20 bg-sand-50">
-      <div className="max-w-[1120px] mx-auto px-6 w-full">
+      <div className="max-w-[1400px] mx-auto px-6 w-full">
         <FadeIn>
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-teal-600 mb-3">
             Como funciona

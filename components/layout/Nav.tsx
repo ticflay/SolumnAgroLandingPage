@@ -22,7 +22,7 @@ export default function Nav() {
           : 'bg-green-950/40 border-white/[0.06]'
       }`}
     >
-      <div className="max-w-[1120px] mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
         <a href="/" className="no-underline flex items-baseline gap-0.5">
           <span
             className={`text-[1.375rem] font-bold tracking-[-0.03em] font-serif transition-colors duration-300 ${
