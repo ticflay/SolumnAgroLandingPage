@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import './globals.css'
 import JsonLd from '@/components/JsonLd'
-
+import { Analytics } from "@vercel/analytics/next"
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://solumconsultoria.vercel.app'
 
 const TITLE = 'Solum Consultoria — Consultoria Ambiental'
@@ -48,6 +48,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-KRNJDTYQKY');`}
         </Script>
+        <Analytics />
         <JsonLd />
         {children}
       </body>
