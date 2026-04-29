@@ -6,9 +6,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: SITE_URL,
-      lastModified: new Date(),
+      lastModified: new Date().toISOString().replace(/\.\d{3}Z$/, '+00:00'),
       changeFrequency: 'monthly',
-      priority: 1,
+      priority: 1.0,
     },
   ]
 }
