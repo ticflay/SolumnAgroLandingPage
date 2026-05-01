@@ -1,22 +1,25 @@
-import Nav from '@/components/layout/Nav'
+import NavWrapper from '@/components/layout/NavWrapper'
 import Footer from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/layout/WhatsAppButton'
 import Hero from '@/components/sections/Hero'
 import Services from '@/components/sections/Services'
 import Process from '@/components/sections/Process'
 import Contact from '@/components/sections/Contact'
-import { getIsReviewEnabled } from '@/flags'
+import { getIsReviewEnabled, getIsServicesEnabled } from '@/flags'
 import Testimonials from '@/components/sections/Testimonials'
 
 export default async function Home() {
-  const ENABLE_REVIEW_PAGE = await getIsReviewEnabled()
+  const [isReviewEnabled, isServicesEnabled] = await Promise.all([
+    getIsReviewEnabled(),
+    getIsServicesEnabled(),
+  ])
   return (
     <main>
-      <Nav />
+      <NavWrapper />
       <Hero />
-      <Services />
+      <Services isServicesEnabled={isServicesEnabled} />
       <Process />
-      {ENABLE_REVIEW_PAGE && <Testimonials />}
+      {isReviewEnabled && <Testimonials />}
       <Contact />
       <Footer />
       <WhatsAppButton />

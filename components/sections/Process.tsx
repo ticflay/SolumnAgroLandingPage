@@ -1,5 +1,6 @@
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import FadeIn from '@/components/ui/FadeIn'
+import Pill from '@/components/ui/Pill'
 import { PROCESS_STEPS, PROCESS_DELIVERABLES } from '@/lib/constants'
 
 export default function Process() {
@@ -78,16 +79,16 @@ export default function Process() {
 
         {/* Bloco de entregáveis */}
         <FadeIn delay={0.5}>
-          <div className="mt-10 md:mt-16 bg-white rounded-2xl p-5 md:p-8 border border-sand-200">
-            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-sand-500 mb-6">
+          <div className="mt-10 md:mt-16 bg-white rounded-2xl p-5 md:p-8 border border-sand-200 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-5 sm:gap-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-sand-500 shrink-0">
               O que você recebe
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="sm:border-l sm:border-sand-200 sm:pl-8 flex flex-wrap gap-3">
               {PROCESS_DELIVERABLES.map((d) => (
-                <div key={d} className="flex items-center gap-2.5 text-sm text-sand-700">
-                  <CheckCircle2 size={16} className="text-teal-500 shrink-0" />
+                <Pill key={d}>
+                  <CheckCircle2 size={14} className="shrink-0" />
                   {d}
-                </div>
+                </Pill>
               ))}
             </div>
           </div>
