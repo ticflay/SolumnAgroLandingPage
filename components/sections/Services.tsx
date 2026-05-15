@@ -1,5 +1,7 @@
 import { ChevronRight, ArrowRight, MessageCircle } from 'lucide-react'
 import FadeIn from '@/components/ui/FadeIn'
+import FeaturedBadge from '@/components/ui/FeaturedBadge'
+import Pill from '@/components/ui/Pill'
 import { SERVICES, SERVICE_GUARANTEES } from '@/lib/constants'
 
 const serviceStyles = [
@@ -15,18 +17,22 @@ const serviceStyles = [
   },
 ] as const
 
-export default function Services() {
+interface ServicesProps {
+  isServicesEnabled: boolean
+}
+
+export default function Services({ isServicesEnabled }: ServicesProps) {
   return (
-    <section id="servicos" className="min-h-screen flex flex-col justify-center py-12 md:py-20 bg-white">
+    <section id="servicos" className="min-h-screen flex flex-col justify-center pt-12 md:pt-20 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 w-full">
         <FadeIn>
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-teal-600 mb-3">
-            Serviços
+            Serviços em destaque
           </p>
         </FadeIn>
         <FadeIn delay={0.05}>
           <h2 className="font-serif font-normal tracking-[-0.02em] text-green-950 mb-5 leading-[1.2] text-[clamp(1.75rem,4vw,2.375rem)]">
-            Nossas principais áreas de atuação
+            Nossos serviços mais procurados
           </h2>
         </FadeIn>
         <FadeIn delay={0.1}>
@@ -44,8 +50,10 @@ export default function Services() {
 
             return (
               <FadeIn key={service.id} delay={0.15 + i * 0.1}>
-                <a href="#contato" className="no-underline text-inherit block h-full">
-                  <div className="relative overflow-hidden rounded-2xl p-6 md:p-10 h-full flex flex-col bg-sand-50 border border-transparent cursor-pointer transition-all duration-300 hover:bg-white hover:border-sand-200 hover:-translate-y-[3px] hover:shadow-[0_12px_48px_rgba(0,0,0,0.05)]">
+                <a href={isServicesEnabled ? service.pageHref : '#contato'} className="no-underline text-inherit block h-full">
+                  <div className="relative overflow-hidden rounded-2xl p-6 md:p-10 h-full flex flex-col bg-sand-50 border border-[#C9A840]/20 cursor-pointer transition-all duration-300 hover:bg-white hover:border-[#C9A840]/50 hover:-translate-y-[3px] hover:shadow-[0_12px_48px_rgba(201,168,64,0.12)]">
+                    <div className="absolute top-0 left-0 right-0 h-[4px] rounded-t-2xl bg-gradient-to-r from-[#B8860B] via-[#E8C86A] to-[#B8860B]" />
+                    {service.isMostContracted && <FeaturedBadge label="★ Mais contratado" />}
                     <div className={`absolute -top-[60px] -right-[60px] w-40 h-40 rounded-full pointer-events-none ${style.bgClass}`} />
 
                     <div className={`relative w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${style.bgClass} ${style.colorClass}`}>
@@ -72,7 +80,7 @@ export default function Services() {
                     </div>
 
                     <div className={`relative inline-flex items-center gap-1.5 text-sm font-medium mt-auto pt-6 ${style.colorClass}`}>
-                      Solicitar orçamento <ArrowRight size={14} />
+                      {isServicesEnabled ? 'Ver detalhes' : 'Solicitar orçamento'} <ArrowRight size={14} />
                     </div>
                   </div>
                 </a>
@@ -103,28 +111,16 @@ export default function Services() {
 
         {/* Garantias */}
         <FadeIn delay={0.45}>
-          <div className="mt-12 pt-10 border-t border-sand-200 flex flex-wrap justify-center gap-8 md:gap-14">
+          <div className="mt-12 border border-sand-200 rounded-2xl px-6 md:px-12 py-6 flex flex-wrap justify-center gap-3 md:gap-4">
             {SERVICE_GUARANTEES.map((g) => {
               const Icon = g.icon
               return (
-                <div key={g.text} className="flex items-center gap-2.5 text-sm text-sand-700">
-                  <Icon size={15} className="text-teal-600 shrink-0" />
+                <Pill key={g.text}>
+                  <Icon size={14} className="shrink-0" />
                   {g.text}
-                </div>
+                </Pill>
               )
             })}
-          </div>
-        </FadeIn>
-
-        {/* Micro-CTA */}
-        <FadeIn delay={0.5}>
-          <div className="mt-10 text-center">
-            <a
-              href="#contato"
-              className="inline-flex items-center gap-2 bg-green-900 text-white px-8 py-3.5 rounded-lg text-sm font-medium no-underline hover:bg-green-800 hover:-translate-y-0.5 transition-all duration-200 shadow-sm"
-            >
-              Solicitar orçamento <ArrowRight size={14} />
-            </a>
           </div>
         </FadeIn>
       </div>

@@ -12,8 +12,55 @@ import {
   Clock,
 } from 'lucide-react'
 
-export const NAV_LINKS = [
-  { label: 'Serviços', href: '#servicos' },
+export interface NavSubItem {
+  label: string
+  href: string
+}
+
+export interface NavSubGroup {
+  label: string
+  href: string
+  items: NavSubItem[]
+}
+
+export interface NavLink {
+  label: string
+  href: string
+  subGroups?: NavSubGroup[]
+}
+
+export const NAV_LINKS: NavLink[] = [
+  {
+    label: 'Serviços',
+    href: '/servicos',
+    subGroups: [
+      {
+        label: 'Projetos Ambientais',
+        href: '/servicos#projetos-ambientais',
+        items: [
+          { label: 'PRAD', href: '/servicos#prad' },
+          { label: 'CAR', href: '/servicos#car' },
+          { label: 'Licenciamento Ambiental', href: '/servicos#licenciamento' },
+          { label: 'Regularização Fundiária', href: '/servicos#regularizacao' },
+          { label: 'Laudos para Licenciamento', href: '/servicos#laudo-licenciamento' },
+        ],
+      },
+      {
+        label: 'Laudos Agronômicos',
+        href: '/servicos#laudos-agronomicos',
+        items: [
+          { label: 'Viabilidade Agrícola', href: '/servicos#laudo-viabilidade' },
+          { label: 'Financiamento Rural', href: '/servicos#laudo-financiamento' },
+          { label: 'Receituário Agronômico', href: '/servicos#receituario' },
+        ],
+      },
+      {
+        label: 'Outros Serviços',
+        href: '/servicos#outros-servicos',
+        items: [],
+      },
+    ],
+  },
   { label: 'Como funciona', href: '#processo' },
 ]
 
@@ -23,21 +70,11 @@ interface Service {
   title: string
   desc: string
   items: string[]
+  isMostContracted?: boolean
+  pageHref: string
 }
 
 export const SERVICES: Service[] = [
-  {
-    id: 'laudos',
-    icon: FileText,
-    title: 'Laudos agronômicos',
-    desc: 'Elaboração de laudos técnicos com emissão de ART para licenciamento ambiental, financiamentos, órgãos reguladores e processos judiciais.',
-    items: [
-      'Laudos de viabilidade agrícola',
-      'Laudos para licenciamento',
-      'Receituário agronômico',
-      'Laudos para financiamento rural',
-    ],
-  },
   {
     id: 'projetos',
     icon: TreePine,
@@ -49,6 +86,21 @@ export const SERVICES: Service[] = [
       'CAR — Cadastro Ambiental Rural',
       'Compensação e licenciamento ambiental',
     ],
+    isMostContracted: true,
+    pageHref: '/servicos#projetos-ambientais',
+  },
+  {
+    id: 'laudos',
+    icon: FileText,
+    title: 'Laudos agronômicos',
+    desc: 'Elaboração de laudos técnicos com emissão de ART para licenciamento ambiental, financiamentos, órgãos reguladores e processos judiciais.',
+    items: [
+      'Laudos de viabilidade agrícola',
+      'Laudos para licenciamento',
+      'Receituário agronômico',
+      'Laudos para financiamento rural',
+    ],
+    pageHref: '/servicos#laudos-agronomicos',
   },
 ]
 
@@ -111,7 +163,7 @@ export const PROCESS_DELIVERABLES = [
 
 export const TESTIMONIALS = [
   {
-    text: 'A Solum Consultoria entregou o PRAD no prazo e com uma qualidade técnica que nos surpreendeu. O órgão ambiental aprovou sem ressalvas.',
+    text: 'A Solumn Soluções Ambientais entregou o PRAD no prazo e com uma qualidade técnica que nos surpreendeu. O órgão ambiental aprovou sem ressalvas.',
     author: 'Ricardo Mendes',
     role: 'Diretor de operações',
     company: 'Construtora Atlântica',
@@ -129,7 +181,7 @@ export const TESTIMONIALS = [
     company: 'CE Empreendimentos',
   },
   {
-    text: 'Contratamos a Solum Consultoria para o CAR de uma área extensa e o processo foi conduzido com total segurança jurídica. Aprovação sem nenhuma pendência.',
+    text: 'Contratamos a Solumn Soluções Ambientais para o CAR de uma área extensa e o processo foi conduzido com total segurança jurídica. Aprovação sem nenhuma pendência.',
     author: 'Marcelo Teixeira',
     role: 'Diretor financeiro',
     company: 'Agropecuária Teixeira',

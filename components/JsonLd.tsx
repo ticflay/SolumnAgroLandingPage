@@ -6,7 +6,7 @@ const schema = {
     {
       '@type': ['LocalBusiness', 'ProfessionalService'],
       '@id': `${SITE_URL}/#organization`,
-      name: 'Solum Consultoria',
+      name: 'Solumn Soluções Ambientais',
       description:
         'Consultoria ambiental especializada em laudos agronômicos, PRAD, CAR e regularização fundiária. Atendimento em todo o Brasil. ART inclusa em todos os projetos.',
       url: SITE_URL,
@@ -63,7 +63,7 @@ const schema = {
       '@type': 'WebSite',
       '@id': `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: 'Solum Consultoria',
+      name: 'Solumn Soluções Ambientais',
       publisher: { '@id': `${SITE_URL}/#organization` },
       inLanguage: 'pt-BR',
     },
