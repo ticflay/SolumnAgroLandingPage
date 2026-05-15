@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from '@vercel/speed-insights/next'
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://solumconsultoria.vercel.app'
 
-const TITLE = 'Solum Consultoria — Consultoria Ambiental'
+const TITLE = 'Solumn Soluções Ambientais'
 const DESCRIPTION =
   'Consultoria ambiental especializada em laudos agronômicos, PRAD, CAR e regularização fundiária. Atendimento em todo o Brasil. ART inclusa em todos os projetos.'
 
@@ -23,12 +23,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: SITE_URL,
-    siteName: 'Solum Consultoria',
+    siteName: 'Solumn Soluções Ambientais',
     locale: 'pt_BR',
     title: TITLE,
     description: DESCRIPTION,
     // Substituir por imagem 1200×630px para melhor aparência no compartilhamento
-    images: [{ url: '/logo.png', width: 512, height: 512, alt: 'Solum Consultoria' }],
+    images: [{ url: '/logo.png', width: 512, height: 512, alt: 'Solumn Soluções Ambientais' }],
   },
   twitter: {
     card: 'summary_large_image',

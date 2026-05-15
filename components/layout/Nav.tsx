@@ -32,22 +32,22 @@ export default function Nav({ isServicesEnabled = false }: NavProps) {
         <a href="/" className="no-underline flex items-center gap-2.5">
           <Image
             src="/logo.png"
-            alt="Solum Consultoria"
+            alt="Solumn Soluções Ambientais"
             width={48}
             height={48}
             priority
             className="rounded-full object-cover"
           />
-          <span className="flex items-baseline gap-0.5">
+          <span className="flex flex-col gap-0">
             <span
-              className={`text-[1.375rem] font-bold tracking-[-0.03em] font-serif transition-colors duration-300 ${
+              className={`text-[1.375rem] font-bold tracking-[-0.03em] font-serif leading-none transition-colors duration-300 ${
                 isScrolled ? 'text-green-900' : 'text-white'
               }`}
             >
-              Solum
+              Solumn
             </span>
-            <span className="text-[1.375rem] font-light text-teal-600 tracking-[-0.03em] font-serif">
-              Consultoria
+            <span className="text-[0.72rem] font-semibold text-teal-600 tracking-[0.06em] uppercase leading-none mt-0.5">
+              Soluções Ambientais
             </span>
           </span>
         </a>
