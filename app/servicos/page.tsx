@@ -10,9 +10,9 @@ import LaudosAgronomicos from '@/components/sections/LaudosAgronomicos'
 import ServicesPageCTA from '@/components/sections/ServicesPageCTA'
 
 export const metadata: Metadata = {
-  title: 'Serviços — Solum Consultoria',
+  title: 'Serviços — Solumn Soluções Ambientais',
   description:
-    'Conheça os serviços da Solum Consultoria: PRAD, CAR, licenciamento ambiental, regularização fundiária e laudos agronômicos. ART inclusa em todos os projetos.',
+    'Conheça os serviços da Solumn Soluções Ambientais: PRAD, CAR, licenciamento ambiental, regularização fundiária e laudos agronômicos. ART inclusa em todos os projetos.',
 }
 
 export default async function ServicosPage() {

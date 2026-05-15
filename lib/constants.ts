@@ -163,7 +163,7 @@ export const PROCESS_DELIVERABLES = [
 
 export const TESTIMONIALS = [
   {
-    text: 'A Solum Consultoria entregou o PRAD no prazo e com uma qualidade técnica que nos surpreendeu. O órgão ambiental aprovou sem ressalvas.',
+    text: 'A Solumn Soluções Ambientais entregou o PRAD no prazo e com uma qualidade técnica que nos surpreendeu. O órgão ambiental aprovou sem ressalvas.',
     author: 'Ricardo Mendes',
     role: 'Diretor de operações',
     company: 'Construtora Atlântica',
@@ -181,7 +181,7 @@ export const TESTIMONIALS = [
     company: 'CE Empreendimentos',
   },
   {
-    text: 'Contratamos a Solum Consultoria para o CAR de uma área extensa e o processo foi conduzido com total segurança jurídica. Aprovação sem nenhuma pendência.',
+    text: 'Contratamos a Solumn Soluções Ambientais para o CAR de uma área extensa e o processo foi conduzido com total segurança jurídica. Aprovação sem nenhuma pendência.',
     author: 'Marcelo Teixeira',
     role: 'Diretor financeiro',
     company: 'Agropecuária Teixeira',
