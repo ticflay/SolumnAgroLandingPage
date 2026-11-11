@@ -37,9 +37,6 @@ export const metadata: Metadata = {
   verification: {
     google: 'mKSdIyaLSfCdCJ70lnezC8EnJJ6sSD3LMkdDDPd1WWw',
   },
-  icons: {
-    icon: '/logo.png',
-  },
   openGraph: {
     ...BASE_OPEN_GRAPH,
     url: '/',
