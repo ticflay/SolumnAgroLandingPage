@@ -1,25 +1,27 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import { Fraunces, IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import JsonLd from '@/components/JsonLd'
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from '@vercel/speed-insights/next'
-const plexSans = IBM_Plex_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+// Fontes hospedadas no próprio projeto (app/fonts) para o build não depender
+// de baixar arquivos do Google Fonts, o que vinha falhando na Vercel.
+const plexSans = localFont({
+  src: [{ path: './fonts/IBMPlexSans-latin.woff2', weight: '100 700', style: 'normal' }],
   variable: '--font-plex-sans',
   display: 'swap',
 })
-const plexMono = IBM_Plex_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
+const plexMono = localFont({
+  src: [
+    { path: './fonts/IBMPlexMono-400-latin.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/IBMPlexMono-500-latin.woff2', weight: '500', style: 'normal' },
+  ],
   variable: '--font-plex-mono',
   display: 'swap',
 })
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  weight: ['600'],
+const fraunces = localFont({
+  src: [{ path: './fonts/Fraunces-600-latin.woff2', weight: '600', style: 'normal' }],
   variable: '--font-fraunces',
   display: 'swap',
 })
