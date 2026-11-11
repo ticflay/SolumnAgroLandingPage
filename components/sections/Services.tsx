@@ -13,8 +13,8 @@ interface ServicesProps {
 
 export default function Services({ isServicesEnabled }: ServicesProps) {
   return (
-    <section id="servicos">
-      <div className="mx-auto flex max-w-[1200px] flex-col gap-10 px-6 py-20 md:py-24">
+    <section id="servicos" className="flex min-h-[calc(100svh-72px)] flex-col justify-center">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-10 px-6 py-20 md:py-24">
         <FadeIn>
           <div className="flex flex-wrap items-end justify-between gap-4 border-b border-ink pb-5">
             <div className="flex flex-col gap-2.5">

@@ -3,8 +3,8 @@ import { TESTIMONIALS } from '@/lib/constants'
 
 export default function Testimonials() {
   return (
-    <section id="depoimentos">
-      <div className="mx-auto flex max-w-[1200px] flex-col gap-10 px-6 py-20 md:py-24">
+    <section id="depoimentos" className="flex min-h-[calc(100svh-72px)] flex-col justify-center">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-10 px-6 py-20 md:py-24">
         <FadeIn>
           <div className="flex flex-col gap-2.5">
             <span className="eyebrow">03 · DEPOIMENTOS</span>

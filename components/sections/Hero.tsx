@@ -1,3 +1,4 @@
+import Guarantees from '@/components/sections/Guarantees'
 import { PROCESS_DELIVERABLES, WHATSAPP_URL } from '@/lib/constants'
 
 const HERO_PHOTO =
@@ -7,7 +8,7 @@ const TRUST_SIGNALS = ['Retorno em até 24h', 'Sem compromisso', 'ART inclusa']
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-line pt-[72px]">
+    <section className="relative flex min-h-[100svh] flex-col overflow-hidden pt-[72px]">
       {/* Curvas de nível ao fundo */}
       <svg
         width="900"
@@ -24,7 +25,7 @@ export default function Hero() {
         </g>
       </svg>
 
-      <div className="relative mx-auto grid max-w-[1200px] items-center gap-14 px-6 pb-[72px] pt-14 md:pt-[88px] lg:grid-cols-2">
+      <div className="relative mx-auto grid w-full max-w-[1200px] flex-1 content-center items-center gap-14 px-6 py-14 lg:grid-cols-2">
         <div className="flex flex-col gap-6">
           <span className="self-start rounded-sm bg-contour px-2.5 py-1.5 font-mono text-xs tracking-[0.06em] text-forest-dark">
             ART EM TODOS OS PROJETOS · ATUAÇÃO EM TODO O BRASIL
@@ -83,6 +84,8 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      <Guarantees />
     </section>
   )
 }

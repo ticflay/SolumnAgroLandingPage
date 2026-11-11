@@ -160,7 +160,7 @@ export default function Contact() {
         </div>
       )}
 
-      <section id="contato" className="relative overflow-hidden bg-ink text-paper">
+      <section id="contato" className="relative flex min-h-[calc(100svh-72px)] flex-col justify-center overflow-hidden bg-ink text-paper">
         <svg
           width="700"
           height="500"
@@ -175,7 +175,7 @@ export default function Contact() {
           </g>
         </svg>
 
-        <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 gap-14 px-6 py-20 md:py-24 lg:grid-cols-2">
+        <div className="relative mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-14 px-6 py-20 md:py-24 lg:grid-cols-2">
           <FadeIn>
             <div className="flex flex-col gap-6">
               <span className="font-mono text-[13px] text-varzea">04 · CONTATO</span>

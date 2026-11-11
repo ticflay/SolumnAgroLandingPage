@@ -3,8 +3,8 @@ import { PROCESS_STEPS } from '@/lib/constants'
 
 export default function Process() {
   return (
-    <section id="processo" className="border-y border-line bg-sheet">
-      <div className="mx-auto flex max-w-[1200px] flex-col gap-12 px-6 py-20 md:py-24">
+    <section id="processo" className="flex min-h-[calc(100svh-72px)] flex-col justify-center border-y border-line bg-sheet">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-12 px-6 py-20 md:py-24">
         <FadeIn>
           <div className="flex flex-col gap-2.5">
             <span className="eyebrow">02 · COMO FUNCIONA</span>

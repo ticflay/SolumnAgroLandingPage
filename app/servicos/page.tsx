@@ -5,8 +5,8 @@ import NavWrapper from '@/components/layout/NavWrapper'
 import Footer from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/layout/WhatsAppButton'
 import ServicesPageHero from '@/components/sections/ServicesPageHero'
-import ProjetosAmbientais from '@/components/sections/ProjetosAmbientais'
-import LaudosAgronomicos from '@/components/sections/LaudosAgronomicos'
+import ServiceCategory from '@/components/sections/ServiceCategory'
+import { LAUDOS_AGRONOMICOS, PROJETOS_AMBIENTAIS } from '@/lib/services-page-content'
 import ServicesPageCTA from '@/components/sections/ServicesPageCTA'
 
 export const metadata: Metadata = {
@@ -24,8 +24,22 @@ export default async function ServicosPage() {
     <main>
       <NavWrapper />
       <ServicesPageHero />
-      <ProjetosAmbientais />
-      <LaudosAgronomicos />
+      <ServiceCategory
+        id="projetos-ambientais"
+        index="01"
+        label="PROJETOS AMBIENTAIS"
+        title="Regularização e gestão ambiental completa"
+        description="Do cadastro obrigatório à recuperação de áreas degradadas, conduzimos cada etapa com rigor técnico e acompanhamento até a aprovação final."
+        items={PROJETOS_AMBIENTAIS}
+      />
+      <ServiceCategory
+        id="laudos-agronomicos"
+        index="02"
+        label="LAUDOS AGRONÔMICOS"
+        title="Documentação técnica com respaldo agronômico"
+        description="Laudos elaborados por engenheiro agrônomo habilitado, com ART inclusa e agilidade na entrega, para financiamentos, processos judiciais, licenciamentos e produção rural."
+        items={LAUDOS_AGRONOMICOS}
+      />
       <ServicesPageCTA />
       <Footer />
       <WhatsAppButton />

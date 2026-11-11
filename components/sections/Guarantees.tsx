@@ -9,7 +9,7 @@ const GUARANTEES = [
 
 export default function Guarantees() {
   return (
-    <section aria-label="Garantias" className="bg-ink text-paper">
+    <div role="region" aria-label="Garantias" className="relative bg-ink text-paper">
       <ul className="m-0 mx-auto grid max-w-[1200px] list-none grid-cols-1 gap-6 px-6 py-8 sm:grid-cols-2 lg:grid-cols-4">
         {GUARANTEES.map(({ Icon, text }) => (
           <li key={text} className="flex items-center gap-3.5">
@@ -18,6 +18,6 @@ export default function Guarantees() {
           </li>
         ))}
       </ul>
-    </section>
+    </div>
   )
 }
