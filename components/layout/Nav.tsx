@@ -1,81 +1,47 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react'
-import Image from 'next/image'
+import { useState } from 'react'
+import { Menu, X, ChevronDown } from 'lucide-react'
+import Logo from '@/components/brand/Logo'
 import { NAV_LINKS } from '@/lib/constants'
 
 interface NavProps {
   isServicesEnabled?: boolean
+  isReviewEnabled?: boolean
 }
 
-export default function Nav({ isServicesEnabled = false }: NavProps) {
-  const [isScrolled, setIsScrolled] = useState(false)
+const linkClass = 'text-[15px] text-ink no-underline transition-colors duration-200 hover:text-forest'
+
+export default function Nav({ isServicesEnabled = false, isReviewEnabled = false }: NavProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const links = NAV_LINKS.filter((link) => !link.requiresReviews || isReviewEnabled)
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-[100] backdrop-blur-xl border-b transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/[0.92] border-black/[0.08] shadow-[0_1px_24px_rgba(0,0,0,0.06)]'
-          : 'bg-green-950/40 border-white/[0.06]'
-      }`}
-    >
-      <div className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="/" className="no-underline flex items-center gap-2.5">
-          <Image
-            src="/logo.png"
-            alt="Solumn Soluções Ambientais"
-            width={48}
-            height={48}
-            priority
-            className="rounded-full object-cover"
-          />
-          <span className="flex flex-col gap-0">
-            <span
-              className={`text-[1.375rem] font-bold tracking-[-0.03em] font-serif leading-none transition-colors duration-300 ${
-                isScrolled ? 'text-green-900' : 'text-white'
-              }`}
-            >
-              Solumn
-            </span>
-            <span className="text-[0.72rem] font-semibold text-teal-600 tracking-[0.06em] uppercase leading-none mt-0.5">
-              Soluções Ambientais
-            </span>
-          </span>
+    <header className="fixed top-0 left-0 right-0 z-[100] border-b border-line bg-paper/95 backdrop-blur">
+      <div className="mx-auto flex h-[72px] max-w-[1200px] items-center justify-between gap-4 px-6">
+        <a href="/" className="no-underline" aria-label="Solumn Soluções Ambientais, página inicial">
+          <Logo clipId="logo-nav" />
         </a>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex gap-8 items-center">
-          {NAV_LINKS.map((link) =>
+        {/* Desktop */}
+        <nav aria-label="Principal" className="hidden items-center gap-7 md:flex">
+          {links.map((link) =>
             link.subGroups && isServicesEnabled ? (
-              <div key={link.href} className="relative group">
-                <a
-                  href={link.href}
-                  className={`flex items-center gap-1 text-sm no-underline font-normal tracking-[0.01em] transition-colors duration-200 ${
-                    isScrolled ? 'text-sand-500' : 'text-white/60'
-                  }`}
-                >
+              <div key={link.href} className="group relative">
+                <a href={link.href} className={`${linkClass} flex items-center gap-1`}>
                   {link.label}
-                  <ChevronDown size={13} className="transition-transform duration-200 group-hover:rotate-180" />
+                  <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </a>
-
-                {/* Dropdown */}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 hidden group-hover:block">
-                  <div className="bg-white rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-sand-100 p-2 min-w-[240px]">
+                <div className="absolute left-1/2 top-full hidden -translate-x-1/2 pt-3 group-hover:block group-focus-within:block">
+                  <div className="min-w-[260px] rounded-lg border border-line bg-sheet p-2 shadow-[0_10px_30px_rgba(19,38,28,0.12)]">
                     {link.subGroups.map((group, i) => (
                       <div key={group.href}>
-                        {i > 0 && <div className="border-t border-sand-100 my-1.5" />}
+                        {i > 0 && <div className="my-1.5 border-t border-contour" />}
                         <a
                           href={group.href}
-                          className="block px-3 py-2 text-sm font-semibold text-green-950 rounded-lg hover:bg-sand-50 no-underline transition-colors duration-150"
+                          className="block rounded px-3 py-2 text-sm font-semibold text-ink no-underline hover:bg-paper"
                         >
                           {group.label}
                         </a>
@@ -83,9 +49,8 @@ export default function Nav({ isServicesEnabled = false }: NavProps) {
                           <a
                             key={item.href}
                             href={item.href}
-                            className="flex items-center gap-2 px-3 py-1.5 ml-2 text-sm text-sand-500 rounded-lg hover:bg-sand-50 hover:text-sand-700 no-underline transition-colors duration-150"
+                            className="block rounded px-3 py-1.5 pl-5 text-sm text-muted no-underline hover:bg-paper hover:text-ink"
                           >
-                            <ChevronRight size={12} className="text-sand-300 shrink-0" />
                             {item.label}
                           </a>
                         ))}
@@ -95,63 +60,59 @@ export default function Nav({ isServicesEnabled = false }: NavProps) {
                 </div>
               </div>
             ) : (
-              <a
-                key={link.href}
-                href={link.subGroups ? '/#servicos' : link.href}
-                className={`text-sm no-underline font-normal tracking-[0.01em] transition-colors duration-200 ${
-                  isScrolled ? 'text-sand-500' : 'text-white/60'
-                }`}
-              >
+              <a key={link.href} href={link.subGroups ? '/#servicos' : link.href} className={linkClass}>
                 {link.label}
               </a>
             )
           )}
           <a
-            href="#contato"
-            className="text-sm font-medium text-white no-underline bg-green-900 px-[22px] py-[9px] rounded-[7px] hover:bg-green-800 transition-colors duration-200"
+            href="/#contato"
+            className="rounded bg-forest px-[18px] py-3 text-[15px] font-semibold text-white no-underline transition-colors duration-200 hover:bg-forest-dark"
           >
             Solicitar orçamento
           </a>
-        </div>
+        </nav>
 
         <button
+          type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden bg-transparent border-0 cursor-pointer p-1"
-          aria-label="Menu"
+          className="flex h-11 w-11 items-center justify-center rounded border-0 bg-transparent text-ink md:hidden"
+          aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
+          aria-expanded={isOpen}
         >
-          {isOpen ? (
-            <X size={22} className={isScrolled ? 'text-sand-900' : 'text-white'} />
-          ) : (
-            <Menu size={22} className={isScrolled ? 'text-sand-900' : 'text-white'} />
-          )}
+          {isOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile */}
       {isOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-white px-6 py-5 border-b border-sand-200 flex flex-col gap-1 md:hidden">
-          {NAV_LINKS.map((link) =>
+        <nav
+          aria-label="Principal"
+          className="absolute left-0 right-0 top-[72px] flex flex-col gap-1 border-b border-line bg-paper px-6 py-5 md:hidden"
+        >
+          {links.map((link) =>
             link.subGroups && isServicesEnabled ? (
               <div key={link.href}>
                 <button
+                  type="button"
                   onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                  className="w-full flex items-center justify-between py-2 text-sm text-sand-500 font-normal bg-transparent border-0 cursor-pointer p-0"
+                  aria-expanded={isMobileServicesOpen}
+                  className="flex w-full items-center justify-between border-0 bg-transparent p-0 py-3 text-base text-ink"
                 >
                   {link.label}
                   <ChevronDown
-                    size={13}
+                    size={16}
                     className={`transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`}
                   />
                 </button>
                 {isMobileServicesOpen && (
-                  <div className="pl-3 pb-2 flex flex-col gap-0.5 border-l-2 border-sand-100 ml-1 mt-1">
-                    {link.subGroups.map((group, i) => (
+                  <div className="mb-2 ml-1 flex flex-col gap-0.5 border-l-2 border-contour pl-3">
+                    {link.subGroups.map((group) => (
                       <div key={group.href}>
-                        {i > 0 && <div className="border-t border-sand-100 my-1.5" />}
                         <a
                           href={group.href}
                           onClick={() => setIsOpen(false)}
-                          className="block py-1.5 px-2 text-sm font-semibold text-green-950 no-underline rounded hover:bg-sand-50"
+                          className="block px-2 py-2 text-sm font-semibold text-ink no-underline"
                         >
                           {group.label}
                         </a>
@@ -160,9 +121,8 @@ export default function Nav({ isServicesEnabled = false }: NavProps) {
                             key={item.href}
                             href={item.href}
                             onClick={() => setIsOpen(false)}
-                            className="flex items-center gap-2 py-1.5 px-2 ml-2 text-sm text-sand-500 no-underline rounded hover:bg-sand-50"
+                            className="block px-2 py-1.5 pl-4 text-sm text-muted no-underline"
                           >
-                            <ChevronRight size={11} className="text-sand-300 shrink-0" />
                             {item.label}
                           </a>
                         ))}
@@ -176,23 +136,21 @@ export default function Nav({ isServicesEnabled = false }: NavProps) {
                 key={link.href}
                 href={link.subGroups ? '/#servicos' : link.href}
                 onClick={() => setIsOpen(false)}
-                className="py-2 text-sm text-sand-500 no-underline font-normal"
+                className="py-3 text-base text-ink no-underline"
               >
                 {link.label}
               </a>
             )
           )}
-          <div className="border-t border-sand-100 mt-2 pt-3">
-            <a
-              href="#contato"
-              onClick={() => setIsOpen(false)}
-              className="text-sm font-medium text-white no-underline bg-green-900 px-[22px] py-3 rounded-[7px] text-center block"
-            >
-              Solicitar orçamento
-            </a>
-          </div>
-        </div>
+          <a
+            href="/#contato"
+            onClick={() => setIsOpen(false)}
+            className="mt-3 block rounded bg-forest px-5 py-3.5 text-center text-base font-semibold text-white no-underline"
+          >
+            Solicitar orçamento
+          </a>
+        </nav>
       )}
-    </nav>
+    </header>
   )
 }

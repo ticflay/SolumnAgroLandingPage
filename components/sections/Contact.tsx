@@ -1,15 +1,20 @@
 'use client'
 
 import { useState } from 'react'
-import { MessageCircle, Send, CheckCircle2, Loader2, X } from 'lucide-react'
+import { MessageCircle, CheckCircle2, Loader2, X } from 'lucide-react'
 import FadeIn from '@/components/ui/FadeIn'
-import { CONTACT_INFO, WHATSAPP_NUMBER } from '@/lib/constants'
+import { CONTACT_INFO, WHATSAPP_NUMBER, WHATSAPP_URL } from '@/lib/constants'
 
-const inputClass =
-  'w-full px-3.5 py-[11px] border border-sand-200 rounded-lg text-sm text-sand-900 bg-sand-50 outline-none transition-all duration-200 focus:border-teal-500 focus:bg-white'
+const inputBase =
+  'w-full rounded border bg-sheet px-3.5 py-[13px] font-sans text-base text-ink outline-none transition-colors duration-200 focus:border-2 focus:border-forest focus:px-[13px] focus:py-3 focus-visible:outline-none'
 
-const inputErrorClass =
-  'w-full px-3.5 py-[11px] border border-red-400 rounded-lg text-sm text-sand-900 bg-sand-50 outline-none transition-all duration-200 focus:border-red-500 focus:bg-white'
+const inputClass = `${inputBase} border-line-strong`
+
+const inputErrorClass = `${inputBase} border-[#B3261E]`
+
+const labelClass = 'text-sm font-semibold'
+
+const errorClass = 'mt-1 text-[13px] text-[#B3261E]'
 
 interface FormFields {
   nome: string
@@ -103,30 +108,34 @@ export default function Contact() {
     <>
       {isSubmitted && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 z-[150] flex items-center justify-center bg-ink/60 p-4 backdrop-blur-sm"
           onClick={handleCloseModal}
         >
           <div
-            className="bg-white rounded-2xl p-8 max-w-sm w-full flex flex-col items-center text-center gap-5 shadow-2xl relative"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="contact-success-title"
+            className="relative flex w-full max-w-sm flex-col items-center gap-5 rounded-lg bg-paper p-8 text-center shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
+              type="button"
               onClick={handleCloseModal}
-              className="absolute top-4 right-4 text-sand-400 hover:text-sand-600 transition-colors"
+              className="absolute right-3 top-3 flex h-11 w-11 items-center justify-center border-0 bg-transparent text-muted-soft hover:text-ink"
               aria-label="Fechar"
             >
               <X size={20} />
             </button>
 
-            <div className="w-16 h-16 rounded-full bg-teal-50 flex items-center justify-center">
-              <CheckCircle2 size={36} className="text-teal-600" />
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-contour">
+              <CheckCircle2 size={36} className="text-forest" />
             </div>
 
             <div>
-              <h3 className="font-serif text-[1.375rem] font-normal text-green-950 mb-2">
+              <h3 id="contact-success-title" className="mb-2 text-[22px] font-bold">
                 Mensagem enviada!
               </h3>
-              <p className="text-sm text-sand-500 leading-[1.7]">
+              <p className="m-0 text-[15px] leading-[1.6] text-muted">
                 Em breve entraremos em contato com uma proposta personalizada.
               </p>
             </div>
@@ -135,14 +144,15 @@ export default function Contact() {
               href={buildWhatsAppUrl(fields)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-[#25D366] text-green-950 px-6 py-3.5 rounded-lg text-sm font-medium no-underline transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(37,211,102,0.3)] w-full justify-center"
+              className="btn-primary w-full"
             >
-              <MessageCircle size={18} fill="currentColor" /> Continuar pelo WhatsApp
+              <MessageCircle size={18} /> Continuar pelo WhatsApp
             </a>
 
             <button
+              type="button"
               onClick={handleCloseModal}
-              className="text-sm text-sand-400 hover:text-sand-600 transition-colors cursor-pointer bg-transparent border-0 p-0"
+              className="cursor-pointer border-0 bg-transparent p-0 text-sm text-muted-soft hover:text-ink"
             >
               Fechar
             </button>
@@ -150,163 +160,164 @@ export default function Contact() {
         </div>
       )}
 
-      <section id="contato" className="min-h-screen flex flex-col justify-center py-12 md:py-20 bg-green-950 relative overflow-hidden">
-        <div
-          className="absolute -top-[40%] -right-[15%] w-[700px] h-[700px] rounded-full pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle, rgba(29,158,117,0.1) 0%, transparent 60%)',
-          }}
-        />
+      <section id="contato" className="relative overflow-hidden bg-ink text-paper">
+        <svg
+          width="700"
+          height="500"
+          viewBox="0 0 700 500"
+          className="pointer-events-none absolute -bottom-[120px] -left-[120px]"
+          aria-hidden="true"
+        >
+          <g fill="none" stroke="#24402F" strokeWidth="1.5">
+            <path d="M0 420 C160 320 340 440 520 320 C600 270 660 290 700 270" />
+            <path d="M0 340 C160 240 340 360 520 240 C600 190 660 210 700 190" />
+            <path d="M0 260 C160 160 340 280 520 160 C600 110 660 130 700 110" />
+          </g>
+        </svg>
 
-        <div className="relative z-[1] max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-[1fr_460px] xl:grid-cols-[1fr_520px] gap-8 md:gap-[60px] items-start">
+        <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 gap-14 px-6 py-20 md:py-24 lg:grid-cols-2">
           <FadeIn>
-            <div>
-              <h2 className="font-serif font-normal text-white tracking-[-0.02em] mb-4 leading-[1.2] text-[clamp(1.75rem,4vw,2.375rem)]">
-                Pronto para iniciar<br />seu projeto?
+            <div className="flex flex-col gap-6">
+              <span className="font-mono text-[13px] text-varzea">04 · CONTATO</span>
+              <h2 className="m-0 text-[clamp(34px,4.4vw,52px)] font-bold leading-[1.06] tracking-[-0.03em]">
+                Pronto para iniciar seu projeto?
               </h2>
-              <p className="text-base text-white/50 leading-[1.7] mb-8 md:mb-12 max-w-[400px]">
-                Solicite um orçamento sem compromisso. Nossa equipe retorna em até 24 horas com
-                uma proposta personalizada.
+              <p className="m-0 max-w-[440px] text-lg leading-[1.6] text-[#C9D3CC]">
+                Solicite um orçamento gratuito. Respondemos em até 24 horas.
               </p>
-
-              <div className="flex flex-col gap-6">
-                {CONTACT_INFO.map((item) => {
-                  const Icon = item.icon
-                  const content = (
-                    <>
-                      <div className="w-[42px] h-[42px] rounded-[10px] bg-white/[7%] flex items-center justify-center shrink-0 text-white/50">
-                        <Icon size={18} />
-                      </div>
-                      {item.text}
-                    </>
-                  )
-                  return item.href ? (
-                    <a key={item.text} href={item.href} className="flex items-center gap-3.5 text-white/65 text-base no-underline hover:text-white/90 transition-colors duration-200">
-                      {content}
-                    </a>
-                  ) : (
-                    <div key={item.text} className="flex items-center gap-3.5 text-white/65 text-base">
-                      {content}
-                    </div>
-                  )
-                })}
+              <div className="flex flex-col border-t border-[#36523F]">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex justify-between gap-3 border-b border-[#36523F] py-[18px] text-paper no-underline hover:text-varzea"
+                >
+                  <span className="font-mono text-xs text-[#A9B5AD]">WHATSAPP</span>
+                  <span className="text-[17px]">{CONTACT_INFO[0].text}</span>
+                </a>
+                <a
+                  href={CONTACT_INFO[1].href}
+                  className="flex justify-between gap-3 border-b border-[#36523F] py-[18px] text-paper no-underline hover:text-varzea"
+                >
+                  <span className="font-mono text-xs text-[#A9B5AD]">E-MAIL</span>
+                  <span className="break-all text-right text-[17px]">{CONTACT_INFO[1].text}</span>
+                </a>
+                <div className="flex justify-between gap-3 border-b border-[#36523F] py-[18px]">
+                  <span className="font-mono text-xs text-[#A9B5AD]">ATUAÇÃO</span>
+                  <span className="text-[17px]">Todo o Brasil</span>
+                </div>
               </div>
-
-              <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá, vim do site e gostaria de saber mais informações')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 bg-[#25D366] text-green-950 px-8 py-4 rounded-[10px] text-base font-medium no-underline transition-all duration-200 mt-9 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(37,211,102,0.3)]"
-              >
-                <MessageCircle size={20} fill="currentColor" /> Fale pelo WhatsApp
-              </a>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.15}>
-            <div className="bg-white rounded-[18px] p-6 md:p-9">
-              <form onSubmit={handleSubmit} noValidate>
-                <h3 className="font-serif text-[1.375rem] font-normal text-green-950 mb-7">
-                  Solicitar orçamento
-                </h3>
+            <form
+              onSubmit={handleSubmit}
+              noValidate
+              className="flex flex-col gap-4 rounded-lg bg-paper p-6 text-ink md:p-8"
+            >
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="nome" className={labelClass}>
+                  Nome completo
+                </label>
+                <input
+                  id="nome"
+                  name="nome"
+                  autoComplete="name"
+                  className={errors.nome ? inputErrorClass : inputClass}
+                  placeholder="Seu nome"
+                  value={fields.nome}
+                  onChange={handleChange}
+                  aria-invalid={!!errors.nome}
+                />
+                {errors.nome && <p className={errorClass}>{errors.nome}</p>}
+              </div>
 
-                <div className="mb-3.5">
-                  <label htmlFor="nome" className="block text-sm font-medium text-sand-700 mb-1.5">
-                    Nome completo <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    id="nome"
-                    name="nome"
-                    className={errors.nome ? inputErrorClass : inputClass}
-                    placeholder="Seu nome"
-                    value={fields.nome}
-                    onChange={handleChange}
-                  />
-                  {errors.nome && <p className="text-xs text-red-500 mt-1">{errors.nome}</p>}
-                </div>
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="contato-input" className={labelClass}>
+                  E-mail ou telefone
+                </label>
+                <input
+                  id="contato-input"
+                  name="contato"
+                  className={errors.contato ? inputErrorClass : inputClass}
+                  placeholder="Como prefere ser contatado"
+                  value={fields.contato}
+                  onChange={handleChange}
+                  aria-invalid={!!errors.contato}
+                />
+                {errors.contato && <p className={errorClass}>{errors.contato}</p>}
+              </div>
 
-                <div className="mb-3.5">
-                  <label htmlFor="contato-input" className="block text-sm font-medium text-sand-700 mb-1.5">
-                    E-mail ou Telefone <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    id="contato-input"
-                    name="contato"
-                    className={errors.contato ? inputErrorClass : inputClass}
-                    placeholder="seu@email.com ou (81) 9xxxx-xxxx"
-                    value={fields.contato}
-                    onChange={handleChange}
-                  />
-                  {errors.contato && <p className="text-xs text-red-500 mt-1">{errors.contato}</p>}
-                </div>
-
-                <div className="mb-3.5">
-                  <label htmlFor="servico" className="block text-sm font-medium text-sand-700 mb-1.5">
-                    Tipo de serviço <span className="text-red-500">*</span>
-                  </label>
-                  <select
-                    id="servico"
-                    name="servico"
-                    className={errors.servico ? inputErrorClass : inputClass}
-                    value={fields.servico}
-                    onChange={handleChange}
-                  >
-                    <option value="">Selecione o serviço desejado</option>
-                    <option>Laudo agronômico</option>
-                    <option>PRAD</option>
-                    <option>Regularização fundiária</option>
-                    <option>CAR — Cadastro Ambiental Rural</option>
-                    <option>Licenciamento ambiental</option>
-                    <option>Outro</option>
-                  </select>
-                  {errors.servico && <p className="text-xs text-red-500 mt-1">{errors.servico}</p>}
-                </div>
-
-                <div className="mb-5">
-                  <label htmlFor="detalhes" className="block text-sm font-medium text-sand-700 mb-1.5">
-                    Detalhes do projeto
-                  </label>
-                  <textarea
-                    id="detalhes"
-                    name="detalhes"
-                    className={`${inputClass} min-h-[90px] resize-y`}
-                    placeholder="Descreva brevemente sua necessidade..."
-                    value={fields.detalhes}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                {submitError && (
-                  <p className="text-sm text-red-500 mb-4 leading-[1.6]">
-                    {submitError}{' '}
-                    <a
-                      href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline text-red-600 hover:text-red-700"
-                    >
-                      Fale pelo WhatsApp
-                    </a>
-                  </p>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-3.5 text-white border-0 rounded-lg text-base font-medium cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 bg-green-900 hover:bg-green-800 disabled:opacity-60 disabled:cursor-not-allowed"
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="servico" className={labelClass}>
+                  Tipo de serviço
+                </label>
+                <select
+                  id="servico"
+                  name="servico"
+                  className={errors.servico ? inputErrorClass : inputClass}
+                  value={fields.servico}
+                  onChange={handleChange}
+                  aria-invalid={!!errors.servico}
                 >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 size={16} className="animate-spin" /> Enviando...
-                    </>
-                  ) : (
-                    <>
-                      <Send size={16} /> Enviar solicitação
-                    </>
-                  )}
-                </button>
-              </form>
-            </div>
+                  <option value="">Selecione</option>
+                  <option>Laudo agronômico</option>
+                  <option>PRAD</option>
+                  <option>Regularização fundiária</option>
+                  <option>CAR — Cadastro Ambiental Rural</option>
+                  <option>Licenciamento ambiental</option>
+                  <option>Outro</option>
+                </select>
+                {errors.servico && <p className={errorClass}>{errors.servico}</p>}
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="detalhes" className={labelClass}>
+                  Detalhes do projeto
+                </label>
+                <textarea
+                  id="detalhes"
+                  name="detalhes"
+                  rows={4}
+                  className={`${inputClass} resize-y`}
+                  placeholder="Localização, área, prazo, o que for útil"
+                  value={fields.detalhes}
+                  onChange={handleChange}
+                />
+              </div>
+
+              {submitError && (
+                <p className="m-0 text-sm leading-[1.6] text-[#B3261E]">
+                  {submitError}{' '}
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#B3261E] underline"
+                  >
+                    Fale pelo WhatsApp
+                  </a>
+                </p>
+              )}
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="flex min-h-[52px] cursor-pointer items-center justify-center gap-2 rounded border-0 bg-forest px-[22px] py-4 font-sans text-base font-semibold text-white transition-colors duration-200 hover:bg-forest-dark disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 size={16} className="animate-spin" /> Enviando...
+                  </>
+                ) : (
+                  'Enviar solicitação →'
+                )}
+              </button>
+              <span className="text-[13px] text-muted-soft">
+                Seus dados são usados apenas para responder à solicitação.
+              </span>
+            </form>
           </FadeIn>
         </div>
       </section>

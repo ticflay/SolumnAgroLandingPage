@@ -1,55 +1,48 @@
+import { LogoMark } from '@/components/brand/Logo'
 import { FOOTER_SERVICES, FOOTER_COMPANY } from '@/lib/constants'
 
-export default function Footer() {
+interface FooterProps {
+  isReviewEnabled?: boolean
+}
+
+const linkClass = 'text-ink no-underline hover:text-forest'
+
+export default function Footer({ isReviewEnabled = false }: FooterProps) {
+  const companyLinks = FOOTER_COMPANY.filter((l) => !l.requiresReviews || isReviewEnabled)
+
   return (
-    <footer className="bg-green-950 border-t border-white/[0.06] pt-12 pb-8">
-      <div className="max-w-[1400px] mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-0 mb-10">
-          <div>
-            <div className="mb-2.5">
-              <span className="text-2xl font-bold text-white font-serif">Solumn</span>
-              <span className="text-2xl font-light text-teal-500 font-serif"> Soluções Ambientais</span>
+    <footer className="border-t border-line bg-paper">
+      <div className="mx-auto flex max-w-[1200px] flex-col gap-10 px-6 pb-8 pt-14">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
+          <div className="flex flex-col gap-3.5">
+            <div className="flex items-center gap-2.5">
+              <LogoMark clipId="logo-footer" size={36} />
+              <span className="font-brand text-[22px] font-semibold">Solumn</span>
             </div>
-            <p className="text-sm text-white/60 max-w-[260px] leading-relaxed">
-              Consultoria ambiental com excelência técnica para todo o Brasil.
+            <p className="m-0 max-w-[320px] text-[15px] leading-[1.6] text-muted">
+              Consultoria ambiental com excelência técnica em todo o Brasil.
             </p>
           </div>
-
-          <div className="flex gap-14">
-            <div>
-              <h4 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/55 mb-4">
-                Serviços
-              </h4>
-              {FOOTER_SERVICES.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="block text-sm text-white/55 no-underline mb-2.5 hover:text-white/80 transition-colors duration-200"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-            <div>
-              <h4 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/55 mb-4">
-                Empresa
-              </h4>
-              {FOOTER_COMPANY.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="block text-sm text-white/55 no-underline mb-2.5 hover:text-white/80 transition-colors duration-200"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-          </div>
+          <nav aria-label="Serviços" className="flex flex-col gap-2.5 text-[15px]">
+            <span className="font-mono text-xs text-muted-soft">SERVIÇOS</span>
+            {FOOTER_SERVICES.map((item) => (
+              <a key={item.label} href={item.href} className={linkClass}>
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          <nav aria-label="Empresa" className="flex flex-col gap-2.5 text-[15px]">
+            <span className="font-mono text-xs text-muted-soft">EMPRESA</span>
+            {companyLinks.map((item) => (
+              <a key={item.label} href={item.href} className={linkClass}>
+                {item.label}
+              </a>
+            ))}
+          </nav>
         </div>
-
-        <div className="border-t border-white/[0.06] pt-6 flex flex-col md:flex-row justify-between text-sm text-white/50 gap-2 md:gap-0">
-          <span>&copy; 2026 Solumn Soluções Ambientais. Todos os direitos reservados.</span>
-          <span>CREA — Responsabilidade técnica</span>
+        <div className="flex flex-wrap justify-between gap-3 border-t border-line pt-5 text-[13px] text-muted-soft">
+          <span>© 2026 Solumn Soluções Ambientais. Todos os direitos reservados.</span>
+          <span className="font-mono">CREA · Responsabilidade técnica</span>
         </div>
       </div>
     </footer>

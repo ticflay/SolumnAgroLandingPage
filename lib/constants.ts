@@ -8,8 +8,6 @@ import {
   MessageCircle,
   ClipboardList,
   FileCheck,
-  Shield,
-  Clock,
 } from 'lucide-react'
 
 export interface NavSubItem {
@@ -27,6 +25,8 @@ export interface NavLink {
   label: string
   href: string
   subGroups?: NavSubGroup[]
+  /** Só aparece quando a seção de depoimentos está habilitada. */
+  requiresReviews?: boolean
 }
 
 export const NAV_LINKS: NavLink[] = [
@@ -61,7 +61,8 @@ export const NAV_LINKS: NavLink[] = [
       },
     ],
   },
-  { label: 'Como funciona', href: '#processo' },
+  { label: 'Como funciona', href: '/#processo' },
+  { label: 'Depoimentos', href: '/#depoimentos', requiresReviews: true },
 ]
 
 interface Service {
@@ -102,17 +103,6 @@ export const SERVICES: Service[] = [
     ],
     pageHref: '/servicos#laudos-agronomicos',
   },
-]
-
-interface ServiceGuarantee {
-  icon: LucideIcon
-  text: string
-}
-
-export const SERVICE_GUARANTEES: ServiceGuarantee[] = [
-  { icon: FileCheck, text: 'ART inclusa em todos os projetos' },
-  { icon: Clock, text: 'Prazo sempre cumprido' },
-  { icon: Shield, text: 'Sigilo das informações' },
 ]
 
 interface ProcessStep {
@@ -201,16 +191,16 @@ export const CONTACT_INFO: ContactItem[] = [
 ]
 
 export const FOOTER_SERVICES = [
-  { label: 'Laudos agronômicos', href: '#servicos' },
-  { label: 'PRAD', href: '#servicos' },
-  { label: 'Regularização fundiária', href: '#servicos' },
-  { label: 'CAR', href: '#servicos' },
+  { label: 'Laudos agronômicos', href: '/#servicos' },
+  { label: 'PRAD', href: '/#servicos' },
+  { label: 'Regularização fundiária', href: '/#servicos' },
+  { label: 'CAR', href: '/#servicos' },
 ]
 
 export const FOOTER_COMPANY = [
-  { label: 'Como funciona', href: '#processo' },
-  { label: 'Depoimentos', href: '#depoimentos' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Como funciona', href: '/#processo' },
+  { label: 'Depoimentos', href: '/#depoimentos', requiresReviews: true },
+  { label: 'Contato', href: '/#contato' },
 ]
 
 export const WHATSAPP_NUMBER = '5581984172325'

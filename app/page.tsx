@@ -7,6 +7,7 @@ import Process from '@/components/sections/Process'
 import Contact from '@/components/sections/Contact'
 import { getIsReviewEnabled, getIsServicesEnabled } from '@/flags'
 import Testimonials from '@/components/sections/Testimonials'
+import Guarantees from '@/components/sections/Guarantees'
 
 export default async function Home() {
   const [isReviewEnabled, isServicesEnabled] = await Promise.all([
@@ -17,11 +18,12 @@ export default async function Home() {
     <main>
       <NavWrapper />
       <Hero />
+      <Guarantees />
       <Services isServicesEnabled={isServicesEnabled} />
       <Process />
       {isReviewEnabled && <Testimonials />}
       <Contact />
-      <Footer />
+      <Footer isReviewEnabled={isReviewEnabled} />
       <WhatsAppButton />
     </main>
   )
