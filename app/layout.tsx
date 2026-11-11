@@ -3,6 +3,7 @@ import Script from 'next/script'
 import localFont from 'next/font/local'
 import './globals.css'
 import JsonLd from '@/components/JsonLd'
+import { BASE_OPEN_GRAPH, HOME_DESCRIPTION, HOME_TITLE, SITE_NAME, SITE_URL } from '@/lib/site'
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from '@vercel/speed-insights/next'
 // Fontes hospedadas no próprio projeto (app/fonts) para o build não depender
@@ -26,16 +27,13 @@ const fraunces = localFont({
   display: 'swap',
 })
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://solumconsultoria.vercel.app'
-
-const TITLE = 'Solumn Soluções Ambientais'
-const DESCRIPTION =
-  'Consultoria ambiental especializada em laudos agronômicos, PRAD, CAR e regularização fundiária. Atendimento em todo o Brasil. ART inclusa em todos os projetos.'
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: TITLE,
-  description: DESCRIPTION,
+  title: {
+    default: HOME_TITLE,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: HOME_DESCRIPTION,
   verification: {
     google: 'mKSdIyaLSfCdCJ70lnezC8EnJJ6sSD3LMkdDDPd1WWw',
   },
@@ -43,19 +41,15 @@ export const metadata: Metadata = {
     icon: '/logo.png',
   },
   openGraph: {
-    type: 'website',
-    url: SITE_URL,
-    siteName: 'Solumn Soluções Ambientais',
-    locale: 'pt_BR',
-    title: TITLE,
-    description: DESCRIPTION,
-    // Substituir por imagem 1200×630px para melhor aparência no compartilhamento
-    images: [{ url: '/logo.png', width: 512, height: 512, alt: 'Solumn Soluções Ambientais' }],
+    ...BASE_OPEN_GRAPH,
+    url: '/',
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
   },
   twitter: {
     card: 'summary_large_image',
-    title: TITLE,
-    description: DESCRIPTION,
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
     images: ['/logo.png'],
   },
 }

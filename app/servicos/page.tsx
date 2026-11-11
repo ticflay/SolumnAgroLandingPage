@@ -8,11 +8,22 @@ import ServicesPageHero from '@/components/sections/ServicesPageHero'
 import ServiceCategory from '@/components/sections/ServiceCategory'
 import { LAUDOS_AGRONOMICOS, PROJETOS_AMBIENTAIS } from '@/lib/services-page-content'
 import ServicesPageCTA from '@/components/sections/ServicesPageCTA'
+import { BASE_OPEN_GRAPH, SITE_NAME } from '@/lib/site'
+
+const TITLE = 'Serviços: CAR, PRAD, Licenciamento e Laudos Agronômicos'
+const DESCRIPTION =
+  'PRAD, CAR, licenciamento ambiental, regularização fundiária e laudos agronômicos para financiamento rural, viabilidade agrícola e receituário. ART inclusa em todos os projetos.'
 
 export const metadata: Metadata = {
-  title: 'Serviços — Solumn Soluções Ambientais',
-  description:
-    'Conheça os serviços da Solumn Soluções Ambientais: PRAD, CAR, licenciamento ambiental, regularização fundiária e laudos agronômicos. ART inclusa em todos os projetos.',
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: '/servicos' },
+  openGraph: {
+    ...BASE_OPEN_GRAPH,
+    url: '/servicos',
+    title: `${TITLE} | ${SITE_NAME}`,
+    description: DESCRIPTION,
+  },
 }
 
 export default async function ServicosPage() {

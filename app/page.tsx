@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import NavWrapper from '@/components/layout/NavWrapper'
 import Footer from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/layout/WhatsAppButton'
@@ -7,6 +8,10 @@ import Process from '@/components/sections/Process'
 import Contact from '@/components/sections/Contact'
 import { getIsReviewEnabled, getIsServicesEnabled } from '@/flags'
 import Testimonials from '@/components/sections/Testimonials'
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+}
 
 export default async function Home() {
   const [isReviewEnabled, isServicesEnabled] = await Promise.all([
