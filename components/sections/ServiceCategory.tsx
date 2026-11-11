@@ -1,5 +1,6 @@
 import FadeIn from '@/components/ui/FadeIn'
 import type { ProjetoAmbiental } from '@/lib/services-page-content'
+import { servicePageHref } from '@/lib/service-pages'
 
 interface ServiceCategoryProps {
   id: string
@@ -90,6 +91,9 @@ export default function ServiceCategory({ id, index, label, title, description, 
                 {item.title}
               </h3>
               <p className="m-0 text-base leading-[1.7] text-muted">{item.description}</p>
+              <a href={servicePageHref(item.id)} className="self-start font-mono text-sm text-forest">
+                Perguntas frequentes e detalhes →
+              </a>
               <div className="flex flex-col gap-3">
                 <span className="font-mono text-xs tracking-[0.08em] text-muted-soft">PARA QUEM É INDICADO</span>
                 <ul className="m-0 flex list-none flex-col border-b border-contour p-0 text-[15px]">

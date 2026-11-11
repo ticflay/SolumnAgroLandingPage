@@ -38,20 +38,20 @@ export const NAV_LINKS: NavLink[] = [
         label: 'Projetos Ambientais',
         href: '/servicos#projetos-ambientais',
         items: [
-          { label: 'PRAD', href: '/servicos#prad' },
-          { label: 'CAR', href: '/servicos#car' },
-          { label: 'Licenciamento Ambiental', href: '/servicos#licenciamento' },
-          { label: 'Regularização Fundiária', href: '/servicos#regularizacao' },
-          { label: 'Laudos para Licenciamento', href: '/servicos#laudo-licenciamento' },
+          { label: 'PRAD', href: '/servicos/prad-recuperacao-de-areas-degradadas' },
+          { label: 'CAR', href: '/servicos/car-cadastro-ambiental-rural' },
+          { label: 'Licenciamento Ambiental', href: '/servicos/licenciamento-ambiental' },
+          { label: 'Regularização Fundiária', href: '/servicos/regularizacao-fundiaria' },
+          { label: 'Laudos para Licenciamento', href: '/servicos/laudos-para-licenciamento-ambiental' },
         ],
       },
       {
         label: 'Laudos Agronômicos',
         href: '/servicos#laudos-agronomicos',
         items: [
-          { label: 'Viabilidade Agrícola', href: '/servicos#laudo-viabilidade' },
-          { label: 'Financiamento Rural', href: '/servicos#laudo-financiamento' },
-          { label: 'Receituário Agronômico', href: '/servicos#receituario' },
+          { label: 'Viabilidade Agrícola', href: '/servicos/laudo-de-viabilidade-agricola' },
+          { label: 'Financiamento Rural', href: '/servicos/laudo-para-financiamento-rural' },
+          { label: 'Receituário Agronômico', href: '/servicos/receituario-agronomico' },
         ],
       },
       {
@@ -191,10 +191,10 @@ export const CONTACT_INFO: ContactItem[] = [
 ]
 
 export const FOOTER_SERVICES = [
-  { label: 'Laudos agronômicos', href: '/#servicos' },
-  { label: 'PRAD', href: '/#servicos' },
-  { label: 'Regularização fundiária', href: '/#servicos' },
-  { label: 'CAR', href: '/#servicos' },
+  { label: 'CAR', href: '/servicos/car-cadastro-ambiental-rural' },
+  { label: 'PRAD', href: '/servicos/prad-recuperacao-de-areas-degradadas' },
+  { label: 'Regularização fundiária', href: '/servicos/regularizacao-fundiaria' },
+  { label: 'Laudos agronômicos', href: '/servicos#laudos-agronomicos' },
 ]
 
 export const FOOTER_COMPANY = [
