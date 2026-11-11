@@ -21,7 +21,7 @@ export default async function Home() {
       <Process />
       {isReviewEnabled && <Testimonials />}
       <Contact />
-      <Footer />
+      <Footer isReviewEnabled={isReviewEnabled} />
       <WhatsAppButton />
     </main>
   )

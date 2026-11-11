@@ -9,6 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Design system Solumn (DS 1.0)
+        paper: '#F4F2EA',
+        sheet: '#FFFFFF',
+        ink: '#13261C',
+        forest: { DEFAULT: '#0F6E56', dark: '#0B4F3E' },
+        contour: '#DDE7DF',
+        marker: { DEFAULT: '#E08A2E', dark: '#A85A12' },
+        broto: '#2AB889',
+        varzea: '#6DBF9C',
+        line: { DEFAULT: '#D9D5C6', strong: '#A8A495' },
+        muted: { DEFAULT: '#4D5A52', soft: '#5E6A62' },
         green: {
           950: '#0a1f04',
           900: '#122b08',
@@ -35,7 +46,9 @@ const config: Config = {
       },
       fontFamily: {
         serif: ['Georgia', 'serif'],
-        sans: ['Segoe UI', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['var(--font-plex-sans)', 'Segoe UI', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['var(--font-plex-mono)', 'ui-monospace', 'monospace'],
+        brand: ['var(--font-fraunces)', 'Georgia', 'serif'],
       },
       animation: {
         'pulse-dot': 'pulse-dot 2s ease-in-out infinite',

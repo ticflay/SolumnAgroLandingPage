@@ -1,49 +1,59 @@
-import { MessageCircle, Mail } from 'lucide-react'
 import FadeIn from '@/components/ui/FadeIn'
-import { WHATSAPP_URL } from '@/lib/constants'
+import { IconChat } from '@/components/brand/Icons'
+import { CONTACT_INFO, WHATSAPP_URL } from '@/lib/constants'
 
 export default function ServicesPageCTA() {
   return (
-    <section id="outros-servicos" className="bg-white border-t-[3px] border-t-green-900 py-20 md:py-28 px-6">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-          <FadeIn>
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-teal-600 mb-3">
-                Outros serviços
-              </p>
-              <h2 className="font-serif font-normal text-green-950 tracking-[-0.02em] leading-[1.2] text-[clamp(1.75rem,4vw,2.5rem)] mb-5">
+    <section
+      id="outros-servicos"
+      className="flex min-h-[calc(100svh-72px)] flex-col justify-center"
+    >
+      <div className="mx-auto w-full max-w-[1200px] px-6 py-20">
+        <FadeIn>
+          <div className="relative grid gap-10 overflow-hidden rounded-lg bg-forest p-8 text-white md:p-14 lg:grid-cols-[1.4fr_1fr] lg:items-end">
+            <svg
+              width="420"
+              height="300"
+              viewBox="0 0 320 240"
+              className="pointer-events-none absolute -bottom-12 -right-12"
+              aria-hidden="true"
+            >
+              <g fill="none" stroke="#2F8A71" strokeWidth="1.5">
+                <path d="M20 240 C40 140 160 90 320 110" />
+                <path d="M80 240 C100 170 200 140 320 150" />
+                <path d="M140 240 C160 200 240 185 320 190" />
+              </g>
+            </svg>
+            <div className="relative flex flex-col gap-5">
+              <IconChat size={40} />
+              <span className="font-mono text-[13px] text-[#CDE6DA]">03 · OUTROS SERVIÇOS</span>
+              <h2 className="m-0 text-[clamp(32px,4vw,48px)] font-bold leading-[1.08] tracking-[-0.02em]">
                 Não encontrou o que procurava?
               </h2>
-              <p className="text-sand-500 text-base leading-[1.8] max-w-[480px]">
-                Cada propriedade tem suas particularidades. Se a sua demanda exige uma abordagem diferente ou você ainda não sabe por onde começar, entre em contato — avaliamos o caso e indicamos a solução técnica mais adequada.
+              <p className="m-0 max-w-[520px] text-lg leading-[1.6] text-[#D7EDE3]">
+                Cada propriedade tem suas particularidades. Se a sua demanda exige outra abordagem ou
+                você ainda não sabe por onde começar, avaliamos o caso e indicamos a solução técnica
+                mais adequada.
               </p>
             </div>
-          </FadeIn>
-
-          <FadeIn delay={0.08}>
-            <div className="flex flex-wrap gap-4 lg:justify-end">
+            <div className="relative flex flex-col gap-3">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 bg-teal-600 text-white px-6 py-3.5 rounded-lg text-sm font-medium no-underline hover:bg-teal-500 hover:-translate-y-0.5 transition-all duration-200 shadow-sm"
+                className="rounded bg-sheet px-6 py-[15px] text-center text-base font-semibold text-ink no-underline transition-colors duration-200 hover:bg-paper"
               >
-                <MessageCircle size={16} />
-                Falar pelo WhatsApp
+                Falar no WhatsApp →
               </a>
               <a
-                href="mailto:consultoriasolum@gmail.com"
-                className="inline-flex items-center gap-2.5 border border-sand-200 text-sand-700 px-6 py-3.5 rounded-lg text-sm font-medium no-underline hover:border-sand-300 hover:text-green-950 hover:-translate-y-0.5 transition-all duration-200"
+                href={CONTACT_INFO[1].href}
+                className="rounded border border-white px-6 py-[14px] text-center text-base font-medium text-white no-underline transition-colors duration-200 hover:bg-white/10"
               >
-                <Mail size={16} />
                 Enviar e-mail
               </a>
             </div>
-          </FadeIn>
-
-        </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   )
