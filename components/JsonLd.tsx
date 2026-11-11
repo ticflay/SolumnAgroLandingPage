@@ -1,4 +1,4 @@
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://solumconsultoria.vercel.app'
+import { SITE_URL } from '@/lib/site'
 
 const schema = {
   '@context': 'https://schema.org',
